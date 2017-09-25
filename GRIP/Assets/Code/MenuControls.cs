@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GRIP {
+namespace GRIP
+{
     public class MenuControls : MonoBehaviour {
 
         // Use this for initialization
@@ -15,4 +16,4 @@ namespace GRIP {
 
         }
     }
-]}
+}

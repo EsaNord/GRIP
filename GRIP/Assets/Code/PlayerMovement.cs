@@ -15,8 +15,12 @@ namespace GRIP
         private float _Distance = 1.0f;
         [SerializeField]
         private LayerMask _GroundLayer;
+        [SerializeField]
+        private int _PlayerHealth = 3;
 
         private bool _Grounded;
+
+        private string _LastCheckPoint;
 
         // Update is called once per frame
         void Update()
@@ -54,6 +58,40 @@ namespace GRIP
             {
                 _Grounded = false;
                 Debug.Log("AIR");
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Killer")
+            {
+                Debug.Log("DEAD");
+                if (_PlayerHealth > 0)
+                {
+                    if (_LastCheckPoint != null)
+                    {
+                        _PlayerHealth--;
+                        if (_LastCheckPoint == "Checkpoint")
+                        {
+                            transform.position = new Vector2(-0.5f, 0.7f);
+                        }
+                    }
+                    else
+                    {
+                        _PlayerHealth--;
+                        transform.position = new Vector2(2, 2);
+                    }
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                    Debug.Log("FINISHED");
+                }
+            }
+            if (collision.tag == "Checkpoint")
+            {
+                Debug.Log("SPAWNSAVED");
+                _LastCheckPoint = collision.name;
             }
         }
     }
