@@ -2,36 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
-    [SerializeField]
-    private float speed = 2;
-    [SerializeField]
-    private float jumpForce = 15;
-	
-	// Update is called once per frame
-	void Update () {
-        Move();
-        Debug.Log("HERE");
-	}
-
-    private void Move()
+namespace GRIP
+{
+    public class PlayerMovement : MonoBehaviour
     {
-        Debug.Log("MOVE");
-        if (Input.GetKey(KeyCode.A))
+
+        [SerializeField]
+        private float speed = 2;
+        [SerializeField]
+        private float jumpForce = 15;
+        [SerializeField]
+        private float _Distance = 1.0f;
+        [SerializeField]
+        private LayerMask _GroundLayer;
+
+        private bool _Grounded;
+
+        // Update is called once per frame
+        void Update()
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-            Debug.Log("LEFT");
+            Move();            
         }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-            Debug.Log("RIGHT");
+
+        private void Move()
+        {            
+            GroundCheck();
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Translate(Vector3.left * speed * Time.deltaTime);                
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Translate(Vector3.right * speed * Time.deltaTime);                
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && _Grounded)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector3.up * jumpForce * Time.deltaTime;               
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        private void GroundCheck()
         {
-            transform.Translate(Vector3.up * jumpForce * Time.deltaTime);
-            Debug.Log("JUMP");
+            Debug.DrawRay(transform.position, -Vector2.up, Color.green);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, _Distance, _GroundLayer);
+            if (hit.collider != null)
+            {
+                _Grounded = true;
+                Debug.Log("GROUND");
+            }
+            else
+            {
+                _Grounded = false;
+                Debug.Log("AIR");
+            }
         }
     }
 }

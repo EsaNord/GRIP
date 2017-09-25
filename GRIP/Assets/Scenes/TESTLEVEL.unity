@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 148285166}
   - component: {fileID: 148285165}
   - component: {fileID: 148285164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,8 +324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b8f48d0c026144b97191d2cafea551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  jumpForce: 150
+  speed: 5
+  jumpForce: 350
+  _GroundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &963935885
 Rigidbody2D:
   serializedVersion: 4
@@ -436,9 +439,9 @@ GameObject:
   - component: {fileID: 1559679020}
   - component: {fileID: 1559679019}
   - component: {fileID: 1559679018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
