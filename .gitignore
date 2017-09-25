@@ -1,2 +1,5 @@
 GRIP/Library/
 GRIP/Temp/UnityLockfile
+*.csproj
+*.sln
+GRIP/Temp/
