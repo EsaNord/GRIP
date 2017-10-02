@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace GRIP
 {
-    public class DialoqueWindow : MonoBehaviour
+    public class DialogueWindow : MonoBehaviour
     {
 
         [SerializeField]

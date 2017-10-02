@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d29a8f501cb8f44da38f525aabffd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DialoqueObject: {fileID: 565928392}
+  _DialogueObject: {fileID: 565928392}
   _TextObject: {fileID: 774744448}
 --- !u!1 &2024384202
 GameObject:
