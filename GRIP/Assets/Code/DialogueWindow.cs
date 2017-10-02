@@ -9,17 +9,17 @@ namespace GRIP
     {
 
         [SerializeField]
-        private GameObject _DialoqueObject;
+        private GameObject _DialogueObject;
         [SerializeField]
         private GameObject _TextObject;
 
-        private GameObject _DialoqueChar;
+        private GameObject _DialogueChar;
         private Text _TextField;
 
         // Use this for initialization
         void Start()
         {
-            _DialoqueChar = this.gameObject;
+            _DialogueChar = this.gameObject;
             _TextField = _TextObject.GetComponent<Text>();
         }
 
@@ -38,10 +38,10 @@ namespace GRIP
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     Debug.Log("OPEN");
-                    _DialoqueObject.SetActive(true);
+                    _DialogueObject.SetActive(true);
                     _TextObject.SetActive(true);
 
-                    if (_DialoqueChar.name == "DialoqueTester")
+                    if (_DialogueChar.name == "DialoqueTester")
                     {
                         _TextField.text = "This should apper when F is pressed near this blue box";
                     }
@@ -54,7 +54,7 @@ namespace GRIP
             if (collision.gameObject.tag == "Player")
             {
                 Debug.Log("LEFT");
-                _DialoqueObject.SetActive(false);
+                _DialogueObject.SetActive(false);
                 _TextObject.SetActive(false);
                 _TextField.text = "";
             }
