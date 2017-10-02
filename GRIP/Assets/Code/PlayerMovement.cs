@@ -66,11 +66,13 @@ namespace GRIP
             if (collision.tag == "Killer")
             {
                 Debug.Log("DEAD");
-                if (_PlayerHealth > 0)
+                if (_PlayerHealth > 1)
                 {
+                    _PlayerHealth--;
+
                     if (_LastCheckPoint != null)
                     {
-                        _PlayerHealth--;
+                        //_PlayerHealth--;
                         if (_LastCheckPoint == "Checkpoint")
                         {
                             transform.position = new Vector2(-0.5f, 0.7f);
@@ -78,7 +80,7 @@ namespace GRIP
                     }
                     else
                     {
-                        _PlayerHealth--;
+                        //_PlayerHealth--;
                         transform.position = new Vector2(2, 2);
                     }
                 }

@@ -9,50 +9,46 @@ namespace GRIP
         [SerializeField]
         private GameObject _Player;
         [SerializeField]
-        private float _cameraMovement = 17.75f;
+        private float _CameraMovementX = 17.75f;
         [SerializeField]
-        private GameObject _Camera;
+        private float _CameraMovementY = 10f;
         [SerializeField]
-        private float _MovementBuffer = 1f;
+        private GameObject _Camera;        
 
         private float _CameraPositionX;
-        private float _PlayerPosX;
-        private bool _JustMoved;
+        private float _CameraPositionY;        
 
         private void Awake()
         {
             _CameraPositionX = _Camera.transform.position.x;
-            _JustMoved = false;
+            _CameraPositionY = _Camera.transform.position.y;            
         }
 
         // Update is called once per frame
         void Update()
-        {                        
-            if (_Player.transform.position.x > _CameraPositionX + 9f && !_JustMoved)
+        {            
+            // Horizontal movement
+            if (_Player.transform.position.x > _CameraPositionX + 9f)
             {
-                _CameraPositionX += _cameraMovement;
-                _JustMoved = true;
-                _PlayerPosX = _Player.transform.position.x;
+                _CameraPositionX += _CameraMovementX;            
             }
-            if (_Player.transform.position.x < _CameraPositionX - 9f && !_JustMoved)
+            if (_Player.transform.position.x < _CameraPositionX - 9f)
             {
-                _CameraPositionX -= _cameraMovement;
-                _JustMoved = true;
-                _PlayerPosX = _Player.transform.position.x;
+                _CameraPositionX -= _CameraMovementX;            
             }
-            
-            _Camera.transform.position = new Vector3(_CameraPositionX, 0, -10);
-            CameraMovementBuffer();
-        }
 
-        private void CameraMovementBuffer()
-        {
-            if (_PlayerPosX + _MovementBuffer < _Player.transform.position.x ||
-                _PlayerPosX - _MovementBuffer > _Player.transform.position.x)
+            // Vertical movement            
+            if (_Player.transform.position.y > _CameraPositionY + 5f)
             {
-                Debug.Log("CHECK");
-                _JustMoved = false;
+                _CameraPositionY += _CameraMovementY;
             }
-        }
+            if (_Player.transform.position.y < _CameraPositionY - 5f)
+            {
+                _CameraPositionY -= _CameraMovementY;
+            }
+
+            // Camera position update
+            _Camera.transform.position = new Vector3(_CameraPositionX, _CameraPositionY, -10);            
+        }        
     }
 }
