@@ -20,7 +20,7 @@ namespace GRIP
         void Start()
         {
             _DialoqueChar = this.gameObject;
-            _TextField.GetComponent<Text>();
+            _TextField = _TextObject.GetComponent<Text>();
         }
 
         // Update is called once per frame
@@ -29,12 +29,15 @@ namespace GRIP
 
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision)
         {
+            Debug.Log("WTF");
             if (collision.gameObject.tag == "Player")
             {
+                Debug.Log("PRESS F");
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    Debug.Log("OPEN");
                     _DialoqueObject.SetActive(true);
                     _TextObject.SetActive(true);
 
@@ -50,6 +53,7 @@ namespace GRIP
         {
             if (collision.gameObject.tag == "Player")
             {
+                Debug.Log("LEFT");
                 _DialoqueObject.SetActive(false);
                 _TextObject.SetActive(false);
                 _TextField.text = "";
