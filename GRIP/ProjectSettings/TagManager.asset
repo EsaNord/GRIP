@@ -8,6 +8,8 @@ TagManager:
   - Killer
   - Checkpoint
   - Dialoque
+  - Entrance
+  - Exit
   layers:
   - Default
   - TransparentFX

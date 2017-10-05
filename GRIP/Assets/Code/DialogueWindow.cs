@@ -30,8 +30,7 @@ namespace GRIP
         }
 
         private void OnTriggerStay2D(Collider2D collision)
-        {
-            Debug.Log("WTF");
+        {            
             if (collision.gameObject.tag == "Player")
             {
                 Debug.Log("PRESS F");

@@ -18,15 +18,23 @@ namespace GRIP
         private float _CameraPositionX;
         private float _CameraPositionY;        
 
-        private void Awake()
+        private void Start()
         {
+            _Player = GameObject.FindGameObjectWithTag("Player");            
+
             _CameraPositionX = _Camera.transform.position.x;
             _CameraPositionY = _Camera.transform.position.y;            
         }
 
         // Update is called once per frame
         void Update()
-        {            
+        {  
+            if (_Player == null)
+            {
+                Debug.Log("SEARCHING PLAYER....");
+                _Player = GameObject.FindGameObjectWithTag("Player");
+            }
+
             // Horizontal movement
             if (_Player.transform.position.x > _CameraPositionX + 9f)
             {
