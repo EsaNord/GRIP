@@ -13,6 +13,8 @@ namespace GRIP
         public GameObject player;
         public bool firstSpawn;
 
+        public bool grapplingHook;
+
         private void Awake()
         {
             if (instance == null)

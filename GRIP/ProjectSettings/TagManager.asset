@@ -10,6 +10,7 @@ TagManager:
   - Dialoque
   - Entrance
   - Exit
+  - Collectable
   layers:
   - Default
   - TransparentFX

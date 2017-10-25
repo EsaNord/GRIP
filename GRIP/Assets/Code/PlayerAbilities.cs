@@ -26,8 +26,19 @@ namespace GRIP
 
         // Update is called once per frame
         void Update() {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (GameManager.instance.grapplingHook)
             {
+                GrapplingHook();
+            } 
+        }
+
+        // Grappling hook abilty. 
+        private void GrapplingHook()
+        {
+            // Detects if mouse's left button is pressed down and held
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Pressed");
                 _TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 _TargetPos.z = 0;
 
@@ -36,14 +47,19 @@ namespace GRIP
                 {
                     _Joint2d.enabled = true;
                     _Joint2d.connectedBody = _Hit.collider.gameObject.GetComponent<Rigidbody2D>();
-                    //_Joint2d.connectedAnchor = _Hit.point - new Vector2(0, _Hit.collider.transform.position.y);
+                    _Joint2d.connectedAnchor = new Vector2(0, (0 - (_Hit.collider.bounds.size.y / 3)));
                     _Joint2d.distance = Vector2.Distance(transform.position, _Hit.transform.position);
 
-                    _Connected = true;                                       
-                }
+                    _Connected = true;
+                    Debug.Log("Target PosX: " + _Hit.transform.position.x);
+                    Debug.Log("Target PosY: " + (_Hit.transform.position.y - _Hit.collider.bounds.size.y / 2));
+                }                
             }
             if (_Connected)
             {
+                Vector3 anchor = new Vector3(_Hit.collider.transform.position.x,
+                    (_Hit.collider.transform.position.y - _Hit.collider.bounds.size.y / 2), 0);
+                Debug.DrawRay(transform.position, (anchor - transform.position), Color.red);
                 Debug.Log("Up or Down");
                 if (Input.GetKey(KeyCode.W))
                 {
@@ -61,19 +77,12 @@ namespace GRIP
                 Debug.Log("DistanceInt: " + Vector2.Distance(transform.position, _Hit.transform.position));
             }
 
-            if (Input.GetKeyUp(KeyCode.F))
+            // Detects if left mouse button is lifted
+            if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log("Released");
                 _Joint2d.enabled = false;
                 _Connected = false;
-            }            
-        }
-
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            if (collision.tag == "Hookable object")
-            {
-                Debug.Log("Can use hook");
-                
             }
         }
     }
