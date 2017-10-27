@@ -12,15 +12,25 @@ namespace GRIP
         private LayerMask _TargetLayer;
         [SerializeField]
         private float _AdjustDistance = 1f;
+        [SerializeField]
+        private GameObject _hook;
+        [SerializeField]
+        private GameObject _crosshair;
 
         private DistanceJoint2D _Joint2d;
         private Vector3 _TargetPos;
+        private Vector3 _crosshairPos;
         private RaycastHit2D _Hit;
         private bool _Connected;
+        private bool _createdCrosshair = false;
+        private bool _createdHook = false;
+        private Vector3[] _ropePoints = new Vector3[2];
+        private LineRenderer _ropeRenderer;
 
         private void Awake()
         {
             _Joint2d = GetComponent<DistanceJoint2D>();
+            _ropeRenderer = GetComponent<LineRenderer>();
             _Joint2d.enabled = false;
         }
 
@@ -28,8 +38,28 @@ namespace GRIP
         void Update() {
             if (GameManager.instance.grapplingHook)
             {
+                Crosshair();
                 GrapplingHook();
             } 
+        }
+
+        private void Crosshair()
+        {        
+            if (!_createdCrosshair)
+            {
+                Debug.Log("Crosshair Created");
+                Instantiate(_crosshair);
+                _crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+                _createdCrosshair = true;
+            }
+            else if (_crosshair == null)
+            {
+                _crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+            }
+
+            _crosshairPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _crosshairPos.z = 0f;            
+            _crosshair.transform.position = _crosshairPos;            
         }
 
         // Grappling hook abilty. 
@@ -50,9 +80,12 @@ namespace GRIP
                     _Joint2d.connectedAnchor = new Vector2(0, (0 - (_Hit.collider.bounds.size.y / 3)));
                     _Joint2d.distance = Vector2.Distance(transform.position, _Hit.transform.position);
 
+                    Hook();
+                    RopeRendering();
+                    
                     _Connected = true;
-                    Debug.Log("Target PosX: " + _Hit.transform.position.x);
-                    Debug.Log("Target PosY: " + (_Hit.transform.position.y - _Hit.collider.bounds.size.y / 2));
+                    //Debug.Log("Target PosX: " + _Hit.transform.position.x);
+                    //Debug.Log("Target PosY: " + (_Hit.transform.position.y - _Hit.collider.bounds.size.y / 2));
                 }                
             }
             if (_Connected)
@@ -65,16 +98,20 @@ namespace GRIP
                 {
                     Debug.Log("Up");
                     _Joint2d.distance -= _AdjustDistance * Time.deltaTime;
+                    
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
                     Debug.Log("Down");
                     _Joint2d.distance += _AdjustDistance * Time.deltaTime;
+                    
                 }
 
+                RopeRendering();
+
                 //Debug.Log("Anchor: " + (_Hit.point - new Vector2(0, _Hit.collider.transform.position.y)));
-                Debug.Log("Distance: " + _Joint2d.distance);
-                Debug.Log("DistanceInt: " + Vector2.Distance(transform.position, _Hit.transform.position));
+                //Debug.Log("Distance: " + _Joint2d.distance);
+                //Debug.Log("DistanceInt: " + Vector2.Distance(transform.position, _Hit.transform.position));
             }
 
             // Detects if left mouse button is lifted
@@ -83,7 +120,37 @@ namespace GRIP
                 Debug.Log("Released");
                 _Joint2d.enabled = false;
                 _Connected = false;
+                _hook.SetActive(false);
+                _ropeRenderer.enabled = false;
             }
+        }
+
+        private void RopeRendering()
+        {
+            _ropePoints[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            _ropePoints[1] = new Vector3(_Hit.collider.transform.position.x,
+                (_Hit.collider.transform.position.y - _Hit.collider.bounds.size.y / 2), 0);
+
+            Debug.Log("pos1: " + _ropePoints[0]);
+            Debug.Log("pos2: " + _ropePoints[1]);
+
+            _ropeRenderer.SetPositions(_ropePoints);
+            _ropeRenderer.enabled = true;
+        }
+
+        private void Hook()
+        {
+            if (!_createdHook)
+            {
+                _hook.SetActive(true);
+                Instantiate(_hook);
+                _hook = GameObject.FindGameObjectWithTag("Hook");
+                _createdHook = true;
+            }
+
+            _hook.SetActive(true);
+            _hook.transform.position = new Vector3(_Hit.collider.transform.position.x,
+                    (_Hit.collider.transform.position.y - _Hit.collider.bounds.size.y / 2), 0);            
         }
     }
 }
