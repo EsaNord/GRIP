@@ -10,10 +10,10 @@ namespace GRIP
         private void OnTriggerEnter2D(Collider2D collision)
         {
             // If object is grappling hook power up
-            if (collision.gameObject.name == "GHookP")
+            if (collision.gameObject.tag == "HookPU")
             {
-                Debug.Log("Grappling Hook Power Up  Foud!");
-                GameManager.instance.grapplingHook = true;
+                Debug.Log("Grappling Hook Power Up  Found!");
+                GameManager.instance.powerUpArray[0] = true;
                 Destroy(collision.gameObject);
             }
         }

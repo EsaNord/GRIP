@@ -48,7 +48,16 @@ namespace GRIP
             if (collision.tag == "Checkpoint")
             {
                 Debug.Log("SPAWNSAVED");
+                
+                if (_LastCheckPointName != null)
+                {
+                    _LastCheckPoint = GameObject.Find(_LastCheckPointName);
+                    _LastCheckPoint.GetComponent<Animator>().SetBool("visited", false);
+                }                
+
                 _LastCheckPointName = collision.name;
+                _LastCheckPoint = GameObject.Find(_LastCheckPointName);
+                _LastCheckPoint.GetComponent<Animator>().SetBool("visited", true);
             }
         }
     }

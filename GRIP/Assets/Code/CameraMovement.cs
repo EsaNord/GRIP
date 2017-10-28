@@ -23,7 +23,13 @@ namespace GRIP
             _Player = GameObject.FindGameObjectWithTag("Player");            
 
             _CameraPositionX = _Camera.transform.position.x;
-            _CameraPositionY = _Camera.transform.position.y;            
+            _CameraPositionY = _Camera.transform.position.y;
+
+            _CameraMovementY = 2f * Camera.main.orthographicSize;
+            _CameraMovementX = _CameraMovementY * Camera.main.aspect;
+
+            Debug.Log("Camera height: " + _CameraMovementY);
+            Debug.Log("Camera width:  " + (_CameraMovementY * Camera.main.aspect));
         }
 
         // Update is called once per frame

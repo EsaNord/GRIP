@@ -14,6 +14,7 @@ namespace GRIP
         public bool firstSpawn;
 
         public bool grapplingHook;
+        public bool[] powerUpArray = new bool[1];
 
         private void Awake()
         {

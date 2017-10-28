@@ -36,7 +36,7 @@ namespace GRIP
 
         // Update is called once per frame
         void Update() {
-            if (GameManager.instance.grapplingHook)
+            if (GameManager.instance.powerUpArray[0])
             {
                 Crosshair();
                 GrapplingHook();
@@ -84,6 +84,7 @@ namespace GRIP
                     RopeRendering();
                     
                     _Connected = true;
+
                     //Debug.Log("Target PosX: " + _Hit.transform.position.x);
                     //Debug.Log("Target PosY: " + (_Hit.transform.position.y - _Hit.collider.bounds.size.y / 2));
                 }                
@@ -125,6 +126,7 @@ namespace GRIP
             }
         }
 
+        // Sets rope's starting and ending points for LineRenderer.
         private void RopeRendering()
         {
             _ropePoints[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -138,6 +140,7 @@ namespace GRIP
             _ropeRenderer.enabled = true;
         }
 
+        // Creates grappling hooks hook and changes its position.
         private void Hook()
         {
             if (!_createdHook)

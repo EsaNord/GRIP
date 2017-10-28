@@ -11,6 +11,9 @@ TagManager:
   - Entrance
   - Exit
   - Collectable
+  - Hook
+  - Crosshair
+  - HookPU
   layers:
   - Default
   - TransparentFX
