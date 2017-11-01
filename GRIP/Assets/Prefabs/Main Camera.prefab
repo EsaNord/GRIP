@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3638740777c0144ba5230271267351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Player: {fileID: 0}
-  _CameraMovementX: 17.75
-  _CameraMovementY: 10
-  _Camera: {fileID: 1303426703103958}
+  _player: {fileID: 0}
+  _cameraMovementX: 17.75
+  _cameraMovementY: 10
+  _camera: {fileID: 0}
 --- !u!124 &124314065082141714
 Behaviour:
   m_ObjectHideFlags: 1

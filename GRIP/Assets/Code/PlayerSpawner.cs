@@ -7,17 +7,17 @@ namespace GRIP
     public class PlayerSpawner : MonoBehaviour
     {
 
-        private GameObject _Player;        
-        private Vector2 _PlayerSpawn;
+        private GameObject _player;        
+        private Vector2 _playerSpawn;
         
         public Vector2 LevelSpawn
         {
-            get { return _PlayerSpawn; }
+            get { return _playerSpawn; }
         }
             
         private void Start()
         {
-            _Player = GameManager.instance.player;
+            _player = GameManager.instance.player;
 
             if (!GameManager.instance.firstSpawn)
             {
@@ -32,9 +32,9 @@ namespace GRIP
 
         private void InitialSpawn()
         {
-            _PlayerSpawn = new Vector2(2, 3);
+            _playerSpawn = new Vector2(2, 3);
             
-            Instantiate(_Player, _PlayerSpawn, Quaternion.identity);            
+            Instantiate(_player, _playerSpawn, Quaternion.identity);            
         }
 
         private void SpawnPlayer()
@@ -42,19 +42,19 @@ namespace GRIP
             // Player exited level from entrance point
             if (GameManager.instance.exitPoint == 0)
             {      
-                _PlayerSpawn = GameObject.FindGameObjectWithTag("Exit").transform.position;
-                _PlayerSpawn.x -= 2f;
+                _playerSpawn = GameObject.FindGameObjectWithTag("Exit").transform.position;
+                _playerSpawn.x -= 2f;
 
-                Instantiate(_Player, _PlayerSpawn, Quaternion.identity);                
+                Instantiate(_player, _playerSpawn, Quaternion.identity);                
             }
 
             // Player exited level from exit point
             else if (GameManager.instance.exitPoint == 1)
             {                
-                _PlayerSpawn = GameObject.FindGameObjectWithTag("Entrance").transform.position;
-                _PlayerSpawn.x += 2f;
+                _playerSpawn = GameObject.FindGameObjectWithTag("Entrance").transform.position;
+                _playerSpawn.x += 2f;
 
-                Instantiate(_Player, _PlayerSpawn, Quaternion.identity);                
+                Instantiate(_player, _playerSpawn, Quaternion.identity);                
             }
         }
     }

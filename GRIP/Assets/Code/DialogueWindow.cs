@@ -8,19 +8,19 @@ namespace GRIP
     public class DialogueWindow : MonoBehaviour
     {
 
-        [SerializeField]
-        private GameObject _DialogueObject;
-        [SerializeField]
-        private GameObject _TextObject;
+        [SerializeField, Tooltip("Panel in canvas")]
+        private GameObject _dialogueObject;
+        [SerializeField, Tooltip("Text in panel")]
+        private GameObject _textObject;
 
-        private GameObject _DialogueChar;
-        private Text _TextField;
+        private GameObject _dialogueChar;
+        private Text _textField;
 
         // Use this for initialization
         void Start()
         {
-            _DialogueChar = this.gameObject;
-            _TextField = _TextObject.GetComponent<Text>();
+            _dialogueChar = this.gameObject;
+            _textField = _textObject.GetComponent<Text>();
         }
 
         // Update is called once per frame
@@ -37,12 +37,12 @@ namespace GRIP
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     Debug.Log("OPEN");
-                    _DialogueObject.SetActive(true);
-                    _TextObject.SetActive(true);
+                    _dialogueObject.SetActive(true);
+                    _textObject.SetActive(true);
 
-                    if (_DialogueChar.name == "DialoqueTester")
+                    if (_dialogueChar.name == "DialoqueTester")
                     {
-                        _TextField.text = "This should apper when F is pressed near this blue box";
+                        _textField.text = "This should apper when F is pressed near this blue box";
                     }
                 }
             }
@@ -53,9 +53,9 @@ namespace GRIP
             if (collision.gameObject.tag == "Player")
             {
                 Debug.Log("LEFT");
-                _DialogueObject.SetActive(false);
-                _TextObject.SetActive(false);
-                _TextField.text = "";
+                _dialogueObject.SetActive(false);
+                _textObject.SetActive(false);
+                _textField.text = "";
             }
         }
     }

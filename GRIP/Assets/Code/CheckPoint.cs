@@ -7,24 +7,24 @@ namespace GRIP
     public class CheckPoint : MonoBehaviour
     {
         [SerializeField]
-        private int _PlayerHealth = 3;
+        private int _playerHealth = 3;
 
-        private string _LastCheckPointName;
-        private Vector2 _CheckPoint;
-        private GameObject _LastCheckPoint;
+        private string _lastCheckPointName;
+        private Vector2 _checkPoint;
+        private GameObject _lastCheckPoint;
        
         private void RespawnPoint()
         {
             Debug.Log("RESPAWN SEARCH");
-            if (_LastCheckPointName != null)
+            if (_lastCheckPointName != null)
             {
-                _LastCheckPoint = GameObject.Find(_LastCheckPointName);                
-                _CheckPoint = new Vector2(_LastCheckPoint.transform.position.x,
-                    _LastCheckPoint.transform.position.y + 1.3f);
+                _lastCheckPoint = GameObject.Find(_lastCheckPointName);                
+                _checkPoint = new Vector2(_lastCheckPoint.transform.position.x,
+                    _lastCheckPoint.transform.position.y + 1.3f);
             }
             else
             {                
-                _CheckPoint = FindObjectOfType<PlayerSpawner>().LevelSpawn;
+                _checkPoint = FindObjectOfType<PlayerSpawner>().LevelSpawn;
             }            
         }
 
@@ -33,11 +33,11 @@ namespace GRIP
             if (collision.tag == "Killer")
             {
                 Debug.Log("DEAD");
-                if (_PlayerHealth > 1)
+                if (_playerHealth > 1)
                 {
-                    _PlayerHealth--;
+                    _playerHealth--;
                     RespawnPoint();
-                    transform.position = _CheckPoint;                  
+                    transform.position = _checkPoint;                  
                 }
                 else
                 {
@@ -49,15 +49,15 @@ namespace GRIP
             {
                 Debug.Log("SPAWNSAVED");
                 
-                if (_LastCheckPointName != null)
+                if (_lastCheckPointName != null)
                 {
-                    _LastCheckPoint = GameObject.Find(_LastCheckPointName);
-                    _LastCheckPoint.GetComponent<Animator>().SetBool("visited", false);
+                    _lastCheckPoint = GameObject.Find(_lastCheckPointName);
+                    _lastCheckPoint.GetComponent<Animator>().SetBool("visited", false);
                 }                
 
-                _LastCheckPointName = collision.name;
-                _LastCheckPoint = GameObject.Find(_LastCheckPointName);
-                _LastCheckPoint.GetComponent<Animator>().SetBool("visited", true);
+                _lastCheckPointName = collision.name;
+                _lastCheckPoint = GameObject.Find(_lastCheckPointName);
+                _lastCheckPoint.GetComponent<Animator>().SetBool("visited", true);
             }
         }
     }

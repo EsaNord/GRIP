@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 1424140040}
   - component: {fileID: 1424140039}
   - component: {fileID: 1424140038}
+  - component: {fileID: 1424140042}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1081,6 +1082,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1424140042
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1424140037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8639c9074f578554ab20f2df91ed2c4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1442186841 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4899321810871754, guid: 409d1910067bfab4a8e0cff61506ace3,
@@ -1389,8 +1407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d29a8f501cb8f44da38f525aabffd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DialogueObject: {fileID: 565928392}
-  _TextObject: {fileID: 774744448}
+  _dialogueObject: {fileID: 565928392}
+  _textObject: {fileID: 774744448}
 --- !u!4 &1734599984 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4661861673705398, guid: 3b19099081b594342a9060215cdd7c97,

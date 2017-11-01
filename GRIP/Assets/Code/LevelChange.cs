@@ -7,12 +7,12 @@ namespace GRIP
 {
     public class LevelChange : MonoBehaviour
     {
-        private string[] _Levels = new string[]
+        private string[] _levels = new string[]
         {
             "TESTLEVEL", "TESTLEVEL2"
         };
 
-        private int level;
+        private int _level;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -32,9 +32,9 @@ namespace GRIP
                 }
 
                 NextLevel();
-                Debug.Log("Level: " + level);
-                GameManager.instance.currentLevel = level;
-                SceneManager.LoadScene(_Levels[level]);
+                Debug.Log("Level: " + _level);
+                GameManager.instance.currentLevel = _level;
+                SceneManager.LoadScene(_levels[_level]);
             }    
             else if (collision.gameObject.tag == "End")
             {
@@ -44,12 +44,12 @@ namespace GRIP
 
         private void NextLevel ()
         {
-            level = GameManager.instance.currentLevel + 1;
+            _level = GameManager.instance.currentLevel + 1;
 
             // FOR TESTLEVELS 
-            if (level > 1)
+            if (_level > 1)
             {
-                level = 0;
+                _level = 0;
             }
         }
     }

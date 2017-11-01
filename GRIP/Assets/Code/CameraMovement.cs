@@ -7,62 +7,63 @@ namespace GRIP
     public class CameraMovement : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _Player;
+        private GameObject _player;
         [SerializeField]
-        private float _CameraMovementX = 17.75f;
+        private float _cameraMovementX = 17.75f;
         [SerializeField]
-        private float _CameraMovementY = 10f;
+        private float _cameraMovementY = 10f;
         [SerializeField]
-        private GameObject _Camera;        
+        private GameObject _camera;        
 
-        private float _CameraPositionX;
-        private float _CameraPositionY;        
+        private float _cameraPositionX;
+        private float _cameraPositionY;        
 
         private void Start()
         {
-            _Player = GameObject.FindGameObjectWithTag("Player");            
+            _player = GameObject.FindGameObjectWithTag("Player");
+            _camera = this.gameObject;
 
-            _CameraPositionX = _Camera.transform.position.x;
-            _CameraPositionY = _Camera.transform.position.y;
+            _cameraPositionX = _camera.transform.position.x;
+            _cameraPositionY = _camera.transform.position.y;
 
-            _CameraMovementY = 2f * Camera.main.orthographicSize;
-            _CameraMovementX = _CameraMovementY * Camera.main.aspect;
+            _cameraMovementY = 2f * Camera.main.orthographicSize;
+            _cameraMovementX = _cameraMovementY * Camera.main.aspect;
 
-            Debug.Log("Camera height: " + _CameraMovementY);
-            Debug.Log("Camera width:  " + (_CameraMovementY * Camera.main.aspect));
+            Debug.Log("Camera height: " + _cameraMovementY);
+            Debug.Log("Camera width:  " + (_cameraMovementY * Camera.main.aspect));
         }
 
         // Update is called once per frame
         void Update()
         {  
-            if (_Player == null)
+            if (_player == null)
             {
                 Debug.Log("SEARCHING PLAYER....");
-                _Player = GameObject.FindGameObjectWithTag("Player");
+                _player = GameObject.FindGameObjectWithTag("Player");
             }
 
             // Horizontal movement
-            if (_Player.transform.position.x > _CameraPositionX + 9f)
+            if (_player.transform.position.x > _cameraPositionX + 9f)
             {
-                _CameraPositionX += _CameraMovementX;            
+                _cameraPositionX += _cameraMovementX;            
             }
-            if (_Player.transform.position.x < _CameraPositionX - 9f)
+            if (_player.transform.position.x < _cameraPositionX - 9f)
             {
-                _CameraPositionX -= _CameraMovementX;            
+                _cameraPositionX -= _cameraMovementX;            
             }
 
             // Vertical movement            
-            if (_Player.transform.position.y > _CameraPositionY + 5f)
+            if (_player.transform.position.y > _cameraPositionY + 5f)
             {
-                _CameraPositionY += _CameraMovementY;
+                _cameraPositionY += _cameraMovementY;
             }
-            if (_Player.transform.position.y < _CameraPositionY - 5f)
+            if (_player.transform.position.y < _cameraPositionY - 5f)
             {
-                _CameraPositionY -= _CameraMovementY;
+                _cameraPositionY -= _cameraMovementY;
             }
 
             // Camera position update
-            _Camera.transform.position = new Vector3(_CameraPositionX, _CameraPositionY, -10);            
+            _camera.transform.position = new Vector3(_cameraPositionX, _cameraPositionY, -10);            
         }        
     }
 }
