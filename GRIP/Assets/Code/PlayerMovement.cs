@@ -59,8 +59,7 @@ namespace GRIP
             GroundCheck();
             if (Input.GetKeyDown(KeyCode.Space) && _grounded)
             {
-                _playerBody.velocity = Vector3.up * _jumpForce * Time.deltaTime;
-                Debug.Log("Jumping");
+                _playerBody.velocity = Vector3.up * _jumpForce * Time.deltaTime;                
                 _playerAnimator.SetBool("Moving", false);
                 _playerAnimator.SetBool("Jumped", true);
             }
@@ -68,8 +67,7 @@ namespace GRIP
             {
                 transform.Translate(Vector3.left * _speed * Time.deltaTime);
                 if (_grounded)
-                {
-                    Debug.Log("Animateing movement left");
+                {                    
                     _playerAnimator.SetBool("Moving", true);
                 }
                 _playerRenderer.flipX = true;
@@ -78,24 +76,35 @@ namespace GRIP
             {
                 transform.Translate(Vector3.right * _speed * Time.deltaTime);
                 if (_grounded)
-                {
-                    Debug.Log("Animateing movement right");
+                {                    
                     _playerAnimator.SetBool("Moving", true);
                 }
                 _playerRenderer.flipX = false;
             }                        
             else
-            {
-                Debug.Log("No movement animation");
+            {                
                 _playerAnimator.SetBool("Moving", false);                
             }
         }
 
         private void GroundCheck()
         {
-            Debug.DrawRay(transform.position, -Vector2.up, Color.green);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, _distance, _groundLayer);
+            bool left = false;
+            bool right = false;
+
+            Debug.DrawRay(transform.position + (transform.right * -1) * 0.5f, -Vector2.up, Color.blue);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + (transform.right * -1) * 0.5f, -Vector2.up, _distance, _groundLayer);
             if (hit.collider != null)
+            {
+                left = true;
+            }
+            Debug.DrawRay(transform.position + transform.right * 0.5f, -Vector2.up, Color.red);
+            hit = Physics2D.Raycast(transform.position + transform.right * 0.5f, -Vector2.up, _distance, _groundLayer);
+            if (hit.collider != null)
+            {
+                right = true;
+            }
+            if (right || left)
             {
                 _grounded = true;
                 Debug.Log("GROUND");
@@ -106,6 +115,7 @@ namespace GRIP
                 _grounded = false;
                 Debug.Log("AIR");
             }
+            Debug.Log("Right: " + right + " / " + "Left: " + left);
         }
     }
 }
