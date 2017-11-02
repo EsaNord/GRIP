@@ -92,8 +92,8 @@ namespace GRIP
             bool left = false;
             bool right = false;
 
-            Debug.DrawRay(transform.position + (transform.right * -1) * 0.5f, -Vector2.up, Color.blue);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + (transform.right * -1) * 0.5f, -Vector2.up, _distance, _groundLayer);
+            Debug.DrawRay(transform.position + -transform.right * 0.5f, -Vector2.up, Color.blue);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + -transform.right * 0.5f, -Vector2.up, _distance, _groundLayer);
             if (hit.collider != null)
             {
                 left = true;
