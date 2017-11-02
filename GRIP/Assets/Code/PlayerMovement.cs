@@ -48,7 +48,7 @@ namespace GRIP
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             CheckComponents();
             Move();            

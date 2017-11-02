@@ -37,7 +37,7 @@ namespace GRIP
         }
 
         // Update is called once per frame
-        void Update() {
+        void FixedUpdate() {
             if (GameManager.instance.powerUpArray[0])
             {
                 Crosshair();
