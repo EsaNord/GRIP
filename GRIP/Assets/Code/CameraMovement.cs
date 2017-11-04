@@ -22,6 +22,7 @@ namespace GRIP
         {
             _player = GameObject.FindGameObjectWithTag("Player");
             _camera = this.gameObject;
+            Camera.main.aspect = 4f / 3f;
 
             _cameraPositionX = _camera.transform.position.x;
             _cameraPositionY = _camera.transform.position.y;
@@ -43,21 +44,21 @@ namespace GRIP
             }
 
             // Horizontal movement
-            if (_player.transform.position.x > _cameraPositionX + 9f)
+            if (_player.transform.position.x > _cameraPositionX + (_cameraMovementX / 2))
             {
                 _cameraPositionX += _cameraMovementX;            
             }
-            if (_player.transform.position.x < _cameraPositionX - 9f)
+            if (_player.transform.position.x < _cameraPositionX - (_cameraMovementX / 2))
             {
                 _cameraPositionX -= _cameraMovementX;            
             }
 
             // Vertical movement            
-            if (_player.transform.position.y > _cameraPositionY + 5f)
+            if (_player.transform.position.y > _cameraPositionY + (_cameraMovementY / 2))
             {
                 _cameraPositionY += _cameraMovementY;
             }
-            if (_player.transform.position.y < _cameraPositionY - 5f)
+            if (_player.transform.position.y < _cameraPositionY - (_cameraMovementY / 2))
             {
                 _cameraPositionY -= _cameraMovementY;
             }
