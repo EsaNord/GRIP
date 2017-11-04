@@ -75,8 +75,14 @@ namespace GRIP
 
         private void SetCrosshairPos()
         {
-            float x = transform.position.x + _maxDistance * Mathf.Cos(_angle);
-            float y = transform.position.y + _maxDistance * Mathf.Sin(_angle);
+            float distance = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
+            if (distance > _maxDistance)
+            {
+                distance = _maxDistance;
+            }
+
+            float x = transform.position.x + distance * Mathf.Cos(_angle);
+            float y = transform.position.y + distance * Mathf.Sin(_angle);
 
             _crosshairPos = new Vector3(x, y, 0);
         }
