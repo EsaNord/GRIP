@@ -134,6 +134,7 @@ namespace GRIP
                 }
 
                 RopeRendering();
+                CheckDistance(anchor);
 
                 //Debug.Log("Anchor: " + (_Hit.point - new Vector2(0, _Hit.collider.transform.position.y)));
                 //Debug.Log("Distance: " + _Joint2d.distance);
@@ -141,13 +142,22 @@ namespace GRIP
             }
 
             // Detects if left mouse button is lifted
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) || !_connected)
             {
                 Debug.Log("Released");
                 _joint2d.enabled = false;
                 _connected = false;
                 _hook.SetActive(false);
                 _ropeRenderer.enabled = false;
+            }
+        }
+
+        private void CheckDistance(Vector3 target) 
+        {
+            Debug.Log("Distance: " + Vector2.Distance(target, transform.position));
+            if (Vector2.Distance(target, transform.position) > _maxDistance)
+            {
+                _connected = false;
             }
         }
 
