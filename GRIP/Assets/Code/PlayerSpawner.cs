@@ -6,7 +6,6 @@ namespace GRIP
 {
     public class PlayerSpawner : MonoBehaviour
     {
-
         private GameObject _player;        
         private Vector2 _playerSpawn;
         

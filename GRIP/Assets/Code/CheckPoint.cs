@@ -12,6 +12,12 @@ namespace GRIP
         private string _lastCheckPointName;
         private Vector2 _checkPoint;
         private GameObject _lastCheckPoint;
+        private bool _dead = false;
+
+        public bool PlayerIsDead
+        {
+            get { return _dead; }
+        }
        
         private void RespawnPoint()
         {
@@ -41,8 +47,10 @@ namespace GRIP
                 }
                 else
                 {
-                    Destroy(this.gameObject);
-                    Debug.Log("FINISHED");
+                    _dead = true;
+                    GameManager.instance.playerDied = _dead;
+                    Destroy(this.gameObject);                    
+                    Debug.Log("FINISHED");                    
                 }
             }
             if (collision.tag == "Checkpoint")

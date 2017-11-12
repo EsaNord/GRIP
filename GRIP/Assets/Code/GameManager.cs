@@ -12,6 +12,7 @@ namespace GRIP
         public int exitPoint;
         public GameObject player;
         public bool firstSpawn;
+        public bool playerDied;
 
         public bool grapplingHook;
         public bool[] powerUpArray = new bool[1];

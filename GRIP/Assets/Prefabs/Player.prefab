@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114554833785606406}
   - component: {fileID: 114327847346016316}
   - component: {fileID: 95204179157734570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -163,6 +163,9 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!114 &114554833785606406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +181,9 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 512
+  _obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 4294965704
   _adjustDistance: 3
   _hook: {fileID: 1259129216387882, guid: f5ef20b4710490448b0e51cbf9670006, type: 2}
   _crosshair: {fileID: 1393936109485866, guid: 69b9e226978334447b028bd632765538, type: 2}

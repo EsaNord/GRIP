@@ -11,6 +11,8 @@ namespace GRIP
         [SerializeField]
         private LayerMask _targetLayer;
         [SerializeField]
+        private LayerMask _obstacleLayer;
+        [SerializeField]
         private float _adjustDistance = 1f;
         [SerializeField]
         private GameObject _hook;
@@ -28,6 +30,8 @@ namespace GRIP
         private LineRenderer _ropeRenderer;
         private Vector3 _direction;
         private float _angle;
+        private float _distance;
+        private bool _blocked;
 
         private void Awake()
         {
@@ -75,14 +79,14 @@ namespace GRIP
 
         private void SetCrosshairPos()
         {
-            float distance = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
-            if (distance > _maxDistance)
+            _distance = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
+            if (_distance > _maxDistance)
             {
-                distance = _maxDistance;
+                _distance = _maxDistance;
             }
 
-            float x = transform.position.x + distance * Mathf.Cos(_angle);
-            float y = transform.position.y + distance * Mathf.Sin(_angle);
+            float x = transform.position.x + _distance * Mathf.Cos(_angle);
+            float y = transform.position.y + _distance * Mathf.Sin(_angle);
 
             _crosshairPos = new Vector3(x, y, 0);
         }
@@ -94,11 +98,24 @@ namespace GRIP
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Pressed");
-                _targetPos = _crosshairPos;
-                
+                _targetPos = _crosshairPos;               
 
-                _hit = Physics2D.Raycast(transform.position, _targetPos - transform.position, _maxDistance, _targetLayer);
-                if (_hit.collider != null && _hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                _hit = Physics2D.Raycast(transform.position, _targetPos - transform.position, _distance, _targetLayer);
+                RaycastHit2D _obstacle = Physics2D.Raycast(transform.position, _targetPos - transform.position, _distance, _obstacleLayer);                
+                
+                if (_obstacle.collider != null)
+                {
+                    Debug.Log("Hitpos?: " + _obstacle.collider.transform.position);
+                    Debug.Log("Blocked");
+                    _blocked = true;
+                }
+                else
+                {
+                    Debug.Log("Clear");
+                    _blocked = false;
+                }
+
+                if (_hit.collider != null && _hit.collider.gameObject.GetComponent<Rigidbody2D>() != null && !_blocked)
                 {
                     _joint2d.enabled = true;
                     _joint2d.connectedBody = _hit.collider.gameObject.GetComponent<Rigidbody2D>();
@@ -134,7 +151,7 @@ namespace GRIP
                 }
 
                 RopeRendering();
-                CheckDistance(anchor);
+                CheckRope(anchor);
 
                 //Debug.Log("Anchor: " + (_Hit.point - new Vector2(0, _Hit.collider.transform.position.y)));
                 //Debug.Log("Distance: " + _Joint2d.distance);
@@ -152,10 +169,16 @@ namespace GRIP
             }
         }
 
-        private void CheckDistance(Vector3 target) 
+        private void CheckRope(Vector3 target) 
         {
-            Debug.Log("Distance: " + Vector2.Distance(target, transform.position));
-            if (Vector2.Distance(target, transform.position) > _maxDistance)
+            //Debug.Log("Distance: " + Vector2.Distance(target, transform.position));
+            RaycastHit2D broken = Physics2D.Raycast(transform.position, _targetPos - transform.position,
+                Vector2.Distance(target, transform.position), _obstacleLayer);
+            if (broken.collider != null)
+            {
+                _connected = false;
+            }
+            else if (Vector2.Distance(target, transform.position) > _maxDistance)
             {
                 _connected = false;
             }
@@ -168,8 +191,8 @@ namespace GRIP
             _ropePoints[1] = new Vector3(_hit.collider.transform.position.x,
                 (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
 
-            Debug.Log("pos1: " + _ropePoints[0]);
-            Debug.Log("pos2: " + _ropePoints[1]);
+            //Debug.Log("pos1: " + _ropePoints[0]);
+            //Debug.Log("pos2: " + _ropePoints[1]);
 
             _ropeRenderer.SetPositions(_ropePoints);
             _ropeRenderer.enabled = true;

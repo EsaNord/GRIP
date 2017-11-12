@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GRIP
 {
     public class MenuControls : MonoBehaviour {
 
-        // Use this for initialization
-        void Start() {
-
+        public void NewGame()
+        {
+            SceneManager.LoadScene("TESTLEVEL");
         }
 
-        // Update is called once per frame
-        void Update() {
-
-        }
+        public void QuitGame()
+        {
+            Application.Quit();
+        }        
     }
 }
