@@ -31,7 +31,7 @@ namespace GRIP
 
         private void InitialSpawn()
         {
-            _playerSpawn = new Vector2(2, 3);
+            _playerSpawn = new Vector2(0, -5);
             
             Instantiate(_player, _playerSpawn, Quaternion.identity);            
         }
