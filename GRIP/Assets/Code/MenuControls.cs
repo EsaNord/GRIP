@@ -10,6 +10,7 @@ namespace GRIP
         public void NewGame()
         {
             SceneManager.LoadScene("TESTLEVEL");
+            GameManager.instance.Reset();
         }
 
         public void QuitGame()

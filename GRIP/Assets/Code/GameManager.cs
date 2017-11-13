@@ -13,6 +13,7 @@ namespace GRIP
         public GameObject player;
         public bool firstSpawn;
         public bool playerDied;
+        public bool playerWon;
 
         public bool grapplingHook;
         public bool[] powerUpArray = new bool[1];
@@ -28,6 +29,13 @@ namespace GRIP
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void Reset()
+        {
+            playerDied = false;
+            powerUpArray[0] = false;
+            firstSpawn = false;
         }
     }
 }

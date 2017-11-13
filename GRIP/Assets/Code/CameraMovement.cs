@@ -42,15 +42,24 @@ namespace GRIP
                 Debug.Log("SEARCHING PLAYER....");
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
-
+            
+            if (!GameManager.instance.playerDied)
+            {
+                MoveCamera();
+            }
+                        
+        } 
+        
+        private void MoveCamera()
+        {
             // Horizontal movement
             if (_player.transform.position.x > _cameraPositionX + (_cameraMovementX / 2))
             {
-                _cameraPositionX += _cameraMovementX;            
+                _cameraPositionX += _cameraMovementX;
             }
             if (_player.transform.position.x < _cameraPositionX - (_cameraMovementX / 2))
             {
-                _cameraPositionX -= _cameraMovementX;            
+                _cameraPositionX -= _cameraMovementX;
             }
 
             // Vertical movement            
@@ -64,7 +73,7 @@ namespace GRIP
             }
 
             // Camera position update
-            _camera.transform.position = new Vector3(_cameraPositionX, _cameraPositionY, -10);            
-        }        
+            _camera.transform.position = new Vector3(_cameraPositionX, _cameraPositionY, -10);
+        }
     }
 }

@@ -17,8 +17,8 @@ namespace GRIP
         public bool PlayerIsDead
         {
             get { return _dead; }
-        }
-       
+        }               
+
         private void RespawnPoint()
         {
             Debug.Log("RESPAWN SEARCH");
@@ -49,6 +49,7 @@ namespace GRIP
                 {
                     _dead = true;
                     GameManager.instance.playerDied = _dead;
+                    GameManager.instance.playerWon = false;
                     Destroy(this.gameObject);                    
                     Debug.Log("FINISHED");                    
                 }
