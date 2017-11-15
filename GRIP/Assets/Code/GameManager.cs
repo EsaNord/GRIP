@@ -14,9 +14,11 @@ namespace GRIP
         public bool firstSpawn;
         public bool playerDied;
         public bool playerWon;
-
-        public bool grapplingHook;
+        public int score = 0;
+        
         public bool[] powerUpArray = new bool[1];
+        // 2d array? levelId,CollectableId?
+        public bool[] lvl1Col = new bool[3];
 
         private void Awake()
         {
@@ -36,6 +38,7 @@ namespace GRIP
             playerDied = false;
             powerUpArray[0] = false;
             firstSpawn = false;
+            score = 0;
         }
     }
 }
