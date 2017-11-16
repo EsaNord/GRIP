@@ -11,8 +11,10 @@ namespace GRIP
         private float _speed = 2;
         [SerializeField]
         private float _jumpForce = 15;
-        [SerializeField]
+        [SerializeField, Tooltip("Distance from ground")]
         private float _distance = 1.0f;
+        [SerializeField, Tooltip("Distance from wall")]
+        private float _wallDistance = 1.0f;
         [SerializeField]
         private LayerMask _groundLayer;
         [SerializeField]
@@ -70,18 +72,18 @@ namespace GRIP
             {
                 if (_grounded)
                 {
-                    _playerBody.velocity = Vector3.up * _jumpForce * Time.deltaTime;
+                    _playerBody.velocity = Vector3.up * _jumpForce;
                 }
                 else
                 {
                     Debug.Log("Walljump?");
                     if (_wallLeft && !_wallRight && !_grounded)
                     {
-                        _playerBody.velocity = (Vector3.up + Vector3.right) * _jumpForce * Time.deltaTime;
+                        _playerBody.velocity = (Vector3.up + Vector3.right) * _jumpForce;
                     }
                     else if (!_wallLeft && _wallRight && !_grounded)
                     {
-                        _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce * Time.deltaTime;
+                        _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                     }
                 }            
                 _playerAnimator.SetBool("Moving", false);
@@ -145,16 +147,16 @@ namespace GRIP
 
         private void WallCheck()
         {
-            Debug.DrawRay(transform.position, Vector2.left * _distance, Color.green);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, _distance, _wallLayer);
+            Debug.DrawRay(transform.position, Vector2.left * _wallDistance, Color.green);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, _wallDistance, _wallLayer);
             if (hit.collider != null && !_wallLeft && !_grounded)
             {
                 _wallLeft = true;
                 _wallRight = false;                
             }
             else {
-                Debug.DrawRay(transform.position, Vector2.right * _distance, Color.yellow);
-                hit = Physics2D.Raycast(transform.position, Vector2.right, _distance, _wallLayer);
+                Debug.DrawRay(transform.position, Vector2.right * _wallDistance, Color.yellow);
+                hit = Physics2D.Raycast(transform.position, Vector2.right, _wallDistance, _wallLayer);
                 if (hit.collider != null && !_wallRight && !_grounded)
                 {
                     _wallRight = true;

@@ -25,12 +25,8 @@ GameObject:
   m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
   m_StaticEditorFlags: 4294967295
-=======
-  m_StaticEditorFlags: 0
->>>>>>> 18da152bf2be425d880fb284f18d0181c9de4f32
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4763649860424288
 Transform:
   m_ObjectHideFlags: 1
@@ -84,3 +80,5 @@ SpriteRenderer:
   m_Size: {x: 0.37, y: 0.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

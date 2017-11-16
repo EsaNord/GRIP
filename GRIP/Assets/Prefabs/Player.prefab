@@ -160,6 +160,7 @@ MonoBehaviour:
   _speed: 5
   _jumpForce: 300
   _distance: 0.7
+  _wallDistance: 0.8
   _groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -270,6 +271,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!212 &212325920940721386
@@ -312,6 +314,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!232 &232385964542724780
 DistanceJoint2D:
   m_ObjectHideFlags: 1
