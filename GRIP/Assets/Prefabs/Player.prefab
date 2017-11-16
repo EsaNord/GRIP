@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _jumpForce: 300
+  _jumpForce: 5
   _distance: 0.7
   _wallDistance: 0.8
   _groundLayer:
