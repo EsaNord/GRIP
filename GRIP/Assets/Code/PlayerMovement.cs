@@ -52,17 +52,20 @@ namespace GRIP
             }
         }
 
-        // Update is called once per frame
-        void FixedUpdate()
+        private void Update()
         {
             CheckComponents();
-            Move();            
+            GroundCheck();
+            WallCheck();            
+        }
+
+        private void FixedUpdate()
+        {
+            Move();
         }
 
         private void Move()
         {            
-            GroundCheck();
-            WallCheck();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (_grounded)
@@ -82,7 +85,7 @@ namespace GRIP
                     }
                 }            
                 _playerAnimator.SetBool("Moving", false);
-                _playerAnimator.SetBool("Jumped", true);
+                _playerAnimator.SetTrigger("Jumped");
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -113,13 +116,13 @@ namespace GRIP
             bool left = false;
             bool right = false;
 
-            Debug.DrawRay(transform.position + -transform.right * 0.4f, -Vector2.up, Color.blue);
+            Debug.DrawRay(transform.position + -transform.right * 0.4f, -Vector2.up * _distance, Color.blue);
             RaycastHit2D hit = Physics2D.Raycast(transform.position + -transform.right * 0.4f, -Vector2.up, _distance, _groundLayer);
             if (hit.collider != null)
             {
                 left = true;
             }
-            Debug.DrawRay(transform.position + transform.right * 0.4f, -Vector2.up, Color.red);
+            Debug.DrawRay(transform.position + transform.right * 0.4f, -Vector2.up * _distance, Color.red);
             hit = Physics2D.Raycast(transform.position + transform.right * 0.4f, -Vector2.up, _distance, _groundLayer);
             if (hit.collider != null)
             {
@@ -129,19 +132,20 @@ namespace GRIP
             {
                 _grounded = true;
                 Debug.Log("GROUND");
-                _playerAnimator.SetBool("Jumped", false);
+                _playerAnimator.SetBool("Ground", true);
             }
             else
             {
                 _grounded = false;
                 Debug.Log("AIR");
+                _playerAnimator.SetBool("Ground", false);
             }
             Debug.Log("Ground: " + "Right: " + right + " / " + "Left: " + left);
         }
 
         private void WallCheck()
         {
-            Debug.DrawRay(transform.position, Vector2.left, Color.green);
+            Debug.DrawRay(transform.position, Vector2.left * _distance, Color.green);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, _distance, _wallLayer);
             if (hit.collider != null && !_wallLeft && !_grounded)
             {
@@ -149,7 +153,7 @@ namespace GRIP
                 _wallRight = false;                
             }
             else {
-                Debug.DrawRay(transform.position, Vector2.right, Color.yellow);
+                Debug.DrawRay(transform.position, Vector2.right * _distance, Color.yellow);
                 hit = Physics2D.Raycast(transform.position, Vector2.right, _distance, _wallLayer);
                 if (hit.collider != null && !_wallRight && !_grounded)
                 {
