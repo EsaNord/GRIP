@@ -40,6 +40,7 @@ namespace GRIP
             powerUpArray[0] = false;
             firstSpawn = false;
             score = 0;
+            currentLevel = 0;
 
             ResetCollectables();
         }

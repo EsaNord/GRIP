@@ -13,7 +13,7 @@ namespace GRIP
         };
 
         private int _level;
-        private int _finalLevel;
+        private int _finalLevel;       
 
         private void Awake()
         {
