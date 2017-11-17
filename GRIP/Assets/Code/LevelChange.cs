@@ -9,10 +9,16 @@ namespace GRIP
     {
         private string[] _levels = new string[]
         {
-            "TESTLEVEL", "TESTLEVEL2"
+            "TESTLEVEL", "TESTLEVEL2", "Level 2"
         };
 
         private int _level;
+        private int _finalLevel;
+
+        private void Awake()
+        {
+            _finalLevel = _levels.Length;
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -47,9 +53,10 @@ namespace GRIP
             _level = GameManager.instance.currentLevel + 1;
 
             // FOR TESTLEVELS 
-            if (_level > 1)
+            if (_level > _finalLevel)
             {
-                _level = 0;
+                GameManager.instance.playerWon = true;
+                SceneManager.LoadScene("EndSceen");
             }
         }
     }
