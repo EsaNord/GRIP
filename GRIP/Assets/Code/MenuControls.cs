@@ -9,7 +9,7 @@ namespace GRIP
 
         public void NewGame()
         {
-            SceneManager.LoadScene("TESTLEVEL");
+            SceneManager.LoadScene("Level 1");
             GameManager.instance.Reset();
         }
 

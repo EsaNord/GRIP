@@ -9,7 +9,7 @@ namespace GRIP
     {
         private string[] _levels = new string[]
         {
-            "TESTLEVEL", "TESTLEVEL2", "Level 2"
+            "Level 1",  "Level 2"
         };
 
         private int _level;
@@ -37,26 +37,33 @@ namespace GRIP
                     Debug.Log("Exit point");
                 }
 
-                NextLevel();
-                Debug.Log("Level: " + _level);
-                GameManager.instance.currentLevel = _level;
-                SceneManager.LoadScene(_levels[_level]);
-            }    
-            else if (collision.gameObject.tag == "End")
-            {
-                Debug.Log("THE END");
-            }
+                NextLevel(); 
+            }            
         }
 
         private void NextLevel ()
         {
-            _level = GameManager.instance.currentLevel + 1;
+            if (GameManager.instance.exitPoint == 0)
+            {
+                _level = GameManager.instance.currentLevel - 1;
+            }
+            else if (GameManager.instance.exitPoint == 1)
+            {
+                _level = GameManager.instance.currentLevel + 1;
+            }
 
-            // FOR TESTLEVELS 
-            if (_level > _finalLevel)
+            Debug.Log("Level: " + _level);
+            Debug.Log("Final: " + _finalLevel);
+                       
+            if (_level >= _finalLevel)
             {
                 GameManager.instance.playerWon = true;
                 SceneManager.LoadScene("EndSceen");
+            }
+            else
+            {
+                GameManager.instance.currentLevel = _level;
+                SceneManager.LoadScene(_levels[_level]);
             }
         }
     }

@@ -17,8 +17,9 @@ namespace GRIP
         public int score = 0;
         
         public bool[] powerUpArray = new bool[1];
-        // 2d array? levelId,CollectableId?
+        
         public bool[] lvl1Col = new bool[3];
+        public bool[] lvl2Col = new bool[4];
 
         private void Awake()
         {
@@ -48,6 +49,10 @@ namespace GRIP
             for (int i = 0; i < lvl1Col.Length; i++)
             {
                 lvl1Col[i] = false;
+            }
+            for (int i = 0; i < lvl2Col.Length; i++)
+            {
+                lvl2Col[i] = false;
             }
         }
     }
