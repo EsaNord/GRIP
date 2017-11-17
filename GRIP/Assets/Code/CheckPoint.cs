@@ -17,7 +17,12 @@ namespace GRIP
         public bool PlayerIsDead
         {
             get { return _dead; }
-        }               
+        }
+        
+        public int PlayerLives
+        {
+            get { return _playerHealth; }
+        }
 
         private void RespawnPoint()
         {
