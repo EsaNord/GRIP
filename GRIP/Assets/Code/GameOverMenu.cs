@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace GRIP
 {
@@ -11,6 +12,8 @@ namespace GRIP
         private GameObject _winText;
         [SerializeField]
         private GameObject _defeatText;
+        [SerializeField]
+        private Text _scoreText;
 
         public void MainMenu()
         {
@@ -27,6 +30,8 @@ namespace GRIP
             {
                 _winText.SetActive(true);
             }
+
+            _scoreText.text = "Final Score: " + GameManager.instance.score;
         }
     }
 }

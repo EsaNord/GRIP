@@ -36,7 +36,7 @@ namespace GRIP {
 
         private void CheckComponents()
         {
-            if (_playerInfo == null)
+            if (_playerInfo == null && !GameManager.instance.playerDied)
             {
                 _playerInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<CheckPoint>();
             }

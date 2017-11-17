@@ -39,6 +39,16 @@ namespace GRIP
             powerUpArray[0] = false;
             firstSpawn = false;
             score = 0;
+
+            ResetCollectables();
+        }
+
+        private void ResetCollectables()
+        {
+            for (int i = 0; i < lvl1Col.Length; i++)
+            {
+                lvl1Col[i] = false;
+            }
         }
     }
 }
