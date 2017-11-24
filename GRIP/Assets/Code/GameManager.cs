@@ -9,13 +9,20 @@ namespace GRIP
         public static GameManager instance;
 
         public int currentLevel;
-        public int exitPoint;
-        public GameObject player;
-        public bool firstSpawn;
-        public bool playerDied;
+        public int exitPoint;        
+        public bool firstSpawn;        
         public bool playerWon;
         public int score = 0;
-        
+        public int playerLives;
+        public int finalLevel;
+        public string lastCheckpointName;
+        public bool changeLevel;
+
+        public string[] levels = new string[]
+        {
+            "Level 1",  "Level 2"
+        };
+
         public bool[] powerUpArray = new bool[1];
         
         public bool[] lvl1Col = new bool[3];
@@ -23,6 +30,8 @@ namespace GRIP
 
         private void Awake()
         {
+            finalLevel = levels.Length;
+
             if (instance == null)
             {
                 DontDestroyOnLoad(gameObject);
@@ -35,12 +44,12 @@ namespace GRIP
         }
 
         public void Reset()
-        {
-            playerDied = false;
+        {            
             powerUpArray[0] = false;
             firstSpawn = false;
             score = 0;
             currentLevel = 0;
+            lastCheckpointName = null;
 
             ResetCollectables();
         }

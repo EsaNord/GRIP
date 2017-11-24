@@ -22,7 +22,7 @@ namespace GRIP
 
         private void Awake()
         {
-            if (GameManager.instance.playerDied)
+            if (GameManager.instance.playerWon)
             {
                 _defeatText.SetActive(true);
             }

@@ -65,3 +65,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720a7be0ac508ee4785ae7636b8dc331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerLives: {fileID: 114214499795033206, guid: 0de3e2af33064d54da9ea68dbebd96a0,
+    type: 2}
+  _playerScore: {fileID: 114182595653157122, guid: 0de3e2af33064d54da9ea68dbebd96a0,
+    type: 2}
+  _defeatText: {fileID: 1446623205126678, guid: 0de3e2af33064d54da9ea68dbebd96a0,
+    type: 2}
+  _pauseMenu: {fileID: 0}
+  _spawner: {fileID: 114215922421702218, guid: 2a8d41862d2641e43a96182cd8d9fee1, type: 2}
+  _spawnDelay: 2

@@ -36,18 +36,16 @@ namespace GRIP
 
         // Update is called once per frame
         void Update()
-        {  
+        {
             if (_player == null)
             {
                 Debug.Log("SEARCHING PLAYER....");
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
-            
-            if (!GameManager.instance.playerDied)
+            else
             {
                 MoveCamera();
             }
-                        
         } 
         
         private void MoveCamera()

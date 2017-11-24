@@ -58,12 +58,13 @@ namespace GRIP
         {
             CheckComponents();
             GroundCheck();
-            WallCheck();            
+            WallCheck();
+            Move();
         }
 
         private void FixedUpdate()
         {
-            Move();
+            //Move();
         }
 
         private void Move()
@@ -117,15 +118,15 @@ namespace GRIP
         {
             bool left = false;
             bool right = false;
-
-            Debug.DrawRay(transform.position + -transform.right * 0.4f, -Vector2.up * _distance, Color.blue);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + -transform.right * 0.4f, -Vector2.up, _distance, _groundLayer);
+            
+            Debug.DrawRay(transform.position + -transform.right * 0.2f, -Vector2.up * _distance, Color.blue);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + -transform.right * 0.2f, -Vector2.up, _distance, _groundLayer);
             if (hit.collider != null)
             {
                 left = true;
             }
-            Debug.DrawRay(transform.position + transform.right * 0.4f, -Vector2.up * _distance, Color.red);
-            hit = Physics2D.Raycast(transform.position + transform.right * 0.4f, -Vector2.up, _distance, _groundLayer);
+            Debug.DrawRay(transform.position + transform.right * 0.2f, -Vector2.up * _distance, Color.red);
+            hit = Physics2D.Raycast(transform.position + transform.right * 0.2f, -Vector2.up, _distance, _groundLayer);
             if (hit.collider != null)
             {
                 right = true;
