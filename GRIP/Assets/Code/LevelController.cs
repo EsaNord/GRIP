@@ -21,8 +21,7 @@ namespace GRIP {
         private float _spawnDelay = 2f;
         
         private GameObject _player;
-        private Vector3 _checkpoint;
-        private bool _defeated = false;
+        private Vector3 _checkpoint;        
         private bool _timerStarted;
         private int _nextLevel;
         private float _timePassed;
@@ -91,8 +90,7 @@ namespace GRIP {
             }
             else
             {
-                Debug.Log("Defeat");
-                _defeated = true;
+                Debug.Log("Defeat");                
                 GameManager.instance.playerWon = false;
                 SceneManager.LoadScene("EndSceen");
             }

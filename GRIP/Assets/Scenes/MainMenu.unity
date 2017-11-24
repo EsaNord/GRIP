@@ -788,11 +788,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   exitPoint: 0
-  player: {fileID: 1403525788616442, guid: 619a714ec6f45bb45967800923847157, type: 2}
   firstSpawn: 0
-  playerDied: 0
   playerWon: 0
   score: 0
+  playerLives: 0
+  finalLevel: 0
+  lastCheckpointName: 
+  changeLevel: 0
+  levels:
+  - Level 1
+  - Level 2
   powerUpArray: 00
   lvl1Col: 000000
   lvl2Col: 00000000
