@@ -7,14 +7,12 @@ namespace GRIP
     public class CameraMovement : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _player;
-        [SerializeField]
         private float _cameraMovementX = 17.75f;
         [SerializeField]
         private float _cameraMovementY = 10f;
-        [SerializeField]
-        private GameObject _camera;        
 
+        private GameObject _player;
+        private GameObject _camera;
         private float _cameraPositionX;
         private float _cameraPositionY;        
 

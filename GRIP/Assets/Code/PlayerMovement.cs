@@ -60,12 +60,7 @@ namespace GRIP
             GroundCheck();
             WallCheck();
             Move();
-        }
-
-        private void FixedUpdate()
-        {
-            //Move();
-        }
+        }        
 
         private void Move()
         {            
