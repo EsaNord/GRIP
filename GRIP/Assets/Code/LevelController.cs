@@ -105,7 +105,7 @@ namespace GRIP {
             else if (GameManager.instance.exitPoint == 1)
             {
                 _nextLevel = GameManager.instance.currentLevel + 1;
-            }            
+            }
 
             if (_nextLevel >= GameManager.instance.finalLevel)
             {

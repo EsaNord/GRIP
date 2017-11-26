@@ -20,13 +20,14 @@ namespace GRIP
 
         public string[] levels = new string[]
         {
-            "Level 1",  "Level 2"
+            "Level 1",  "Level 2", "Level 3"
         };
 
         public bool[] powerUpArray = new bool[1];
         
         public bool[] lvl1Col = new bool[3];
         public bool[] lvl2Col = new bool[4];
+        public bool[] lvl3Col = new bool[5];
 
         private void Awake()
         {
@@ -63,6 +64,10 @@ namespace GRIP
             for (int i = 0; i < lvl2Col.Length; i++)
             {
                 lvl2Col[i] = false;
+            }
+            for (int i = 0; i < lvl3Col.Length; i++)
+            {
+                lvl3Col[i] = false;
             }
         }
     }
