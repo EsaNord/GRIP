@@ -18,10 +18,7 @@ namespace GRIP
         public string lastCheckpointName;
         public bool changeLevel;
 
-        public string[] levels = new string[]
-        {
-            "Level 1",  "Level 2", "Level 3"
-        };
+        public string[] levels;
 
         public bool[] powerUpArray = new bool[1];
         
@@ -31,7 +28,13 @@ namespace GRIP
 
         private void Awake()
         {
+            levels = new string[]
+            {
+                "Level 1",  "Level 2", "Level 3"
+            };
+
             finalLevel = levels.Length;
+            Debug.Log("final: " + finalLevel + "/" + levels.Length);
 
             if (instance == null)
             {

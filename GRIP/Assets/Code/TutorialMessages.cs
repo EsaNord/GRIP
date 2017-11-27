@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,12 @@ namespace GRIP
         private GameObject _window;
         [SerializeField]
         private Text _tutorialText;
-                
+
+        private GameObject _dialoqueObject;
+        private string _dialoqueFile = "Dialoque";
+        private string _tutorialFile = "Tutorial";
+        private List<string> textList;
+             
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.tag == "Player")
@@ -31,26 +37,25 @@ namespace GRIP
 
         private string TutorialMessage()
         {
+            _dialoqueObject = this.gameObject;
             string message = "";
 
-            if (GameManager.instance.currentLevel == 0)
+            if (_dialoqueObject.tag == "Tutorial")
             {
-                message = "Placeholder text for story" +
-                    " (short version: you fell into hole and now you" +
-                    " must get back up into surface)";
+                _tutorialFile += (GameManager.instance.currentLevel + 1);               
+                message = Resources.Load(_tutorialFile).ToString();
             }
-            else if (GameManager.instance.currentLevel == 1)
+            else if (_dialoqueObject.tag == "Dialoque")
             {
-                message = "Grapling hook power up ahead, mouse controlled." +
-                    " you can adjust 'rope' lengt with W & S." +
-                    "You can also reaim the hook while hanging from previous target.";
+                _dialoqueFile += (GameManager.instance.currentLevel + 1);                
+                message = Resources.Load(_dialoqueFile).ToString();
             }
             else
             {
-                message = "No Text Found";
+                Debug.LogError("No Tag On Object");
             }
 
             return message;
-        }
+        }       
     }
 }

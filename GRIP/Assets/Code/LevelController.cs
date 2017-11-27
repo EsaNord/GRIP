@@ -33,7 +33,7 @@ namespace GRIP {
 
         private void Start()
         {
-            CheckComponents();           
+            CheckComponents();            
         }
 
         // Update is called once per frame

@@ -21,6 +21,7 @@ namespace GRIP
             _player = GameObject.FindGameObjectWithTag("Player");
             _camera = this.gameObject;
             Camera.main.aspect = 4f / 3f;
+            Screen.SetResolution(1440, 1080, true);
 
             _cameraPositionX = _camera.transform.position.x;
             _cameraPositionY = _camera.transform.position.y;
