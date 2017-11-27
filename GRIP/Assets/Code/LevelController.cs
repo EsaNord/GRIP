@@ -109,6 +109,7 @@ namespace GRIP {
 
             if (_nextLevel >= GameManager.instance.finalLevel)
             {
+                Debug.Log("Victory");
                 GameManager.instance.playerWon = true;
                 SceneManager.LoadScene("EndSceen");
             }

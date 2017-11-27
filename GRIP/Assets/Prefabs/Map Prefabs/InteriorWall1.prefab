@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4770387829105886}
   - component: {fileID: 212434995118747234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InteriorWall1
   m_TagString: Ground
   m_Icon: {fileID: 0}

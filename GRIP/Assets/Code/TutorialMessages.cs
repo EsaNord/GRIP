@@ -42,7 +42,8 @@ namespace GRIP
             else if (GameManager.instance.currentLevel == 1)
             {
                 message = "Grapling hook power up ahead, mouse controlled." +
-                    " you can adjust 'rope' lengt with W & S";
+                    " you can adjust 'rope' lengt with W & S." +
+                    "You can also reaim the hook while hanging from previous target.";
             }
             else
             {

@@ -23,12 +23,12 @@ namespace GRIP
         private void Awake()
         {
             if (GameManager.instance.playerWon)
-            {
-                _defeatText.SetActive(true);
+            {                
+                _winText.SetActive(true);
             }
             else
             {
-                _winText.SetActive(true);
+                _defeatText.SetActive(true);
             }
 
             _scoreText.text = "Final Score: " + GameManager.instance.score;
