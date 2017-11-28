@@ -801,6 +801,7 @@ MonoBehaviour:
   powerUpArray: 00
   lvl1Col: 000000
   lvl2Col: 00000000
+  lvl3Col: 0000000000
 --- !u!4 &2013867419
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 91c169012d4c4d840a3d308cd5671685
-timeCreated: 1511870578
+timeCreated: 1511876251
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -100,10 +100,10 @@ TextureImporter:
       name: RUN_FINAL SHEET_0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 0
         y: 0
-        width: 110
-        height: 110
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,10 +114,10 @@ TextureImporter:
       name: RUN_FINAL SHEET_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 150
         y: 0
-        width: 110
-        height: 110
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: RUN_FINAL SHEET_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 300
         y: 0
-        width: 110
-        height: 110
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: RUN_FINAL SHEET_3
       rect:
         serializedVersion: 2
-        x: 470
+        x: 450
         y: 0
-        width: 110
-        height: 110
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: RUN_FINAL SHEET_4
       rect:
         serializedVersion: 2
-        x: 617
+        x: 600
         y: 0
-        width: 110
-        height: 110
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: RUN_FINAL SHEET_5
       rect:
         serializedVersion: 2
-        x: 770
+        x: 750
         y: 0
-        width: 110
-        height: 110
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7db47976d09ecbc478bdb1f6c7e96eb8
-timeCreated: 1511870983
+timeCreated: 1511880124
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -96,9 +96,9 @@ TextureImporter:
       name: WALLJUMP_INTO_WALL_FINAL_SHEET_0
       rect:
         serializedVersion: 2
-        x: 90
+        x: 75
         y: 0
-        width: 60
+        width: 75
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -110,9 +110,9 @@ TextureImporter:
       name: WALLJUMP_INTO_WALL_FINAL_SHEET_1
       rect:
         serializedVersion: 2
-        x: 240
+        x: 225
         y: 0
-        width: 60
+        width: 75
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

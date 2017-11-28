@@ -68,13 +68,10 @@ namespace GRIP
             {
                 if (_grounded)
                 {
-                    _playerBody.velocity = Vector3.up * _jumpForce;
-                    _playerAnimator.SetTrigger("Jumped");
-                    _playerAnimator.SetBool("Ground", false);
+                    _playerBody.velocity = Vector3.up * _jumpForce;                                       
                 }
                 else
-                {
-                    Debug.Log("Walljump?");
+                {                    
                     if (_wallLeft && !_wallRight && !_grounded)
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.right) * _jumpForce;
@@ -83,7 +80,8 @@ namespace GRIP
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                     }
-                }                
+                }
+                _playerAnimator.SetTrigger("Jumped");
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -103,14 +101,8 @@ namespace GRIP
                 }
                 _playerRenderer.flipX = false;
             }                        
-            else if (_grounded)
-            {                
-                _playerAnimator.SetBool("Moving", false);
-                _playerAnimator.SetBool("Ground", true);
-            }
-            else if (!_grounded)
+            else
             {
-                _playerAnimator.SetBool("Ground", false);
                 _playerAnimator.SetBool("Moving", false);
             }
         }
@@ -135,14 +127,14 @@ namespace GRIP
             if (right || left)
             {
                 _grounded = true;
-                Debug.Log("GROUND");                
+                _playerAnimator.SetBool("Ground", true);
             }
             else
             {
                 _grounded = false;
-                Debug.Log("AIR");                
-            }
-            Debug.Log("Ground: " + "Right: " + right + " / " + "Left: " + left);
+                _playerAnimator.SetBool("Ground", false);
+                               
+            }            
         }
 
         private void WallCheck()
@@ -170,13 +162,17 @@ namespace GRIP
             }            
             if (_wallRight && !_grounded)
             {
-                _playerAnimator.SetTrigger("InWall");
+                _playerAnimator.SetBool("Wall", true);
                 _playerRenderer.flipX = false;
             }
             else if (_wallLeft && !_grounded)
             {
-                _playerAnimator.SetTrigger("InWall");
+                _playerAnimator.SetBool("Wall", true);
                 _playerRenderer.flipX = true;
+            }
+            else
+            {
+                _playerAnimator.SetBool("Wall", false);
             }
         }
     }
