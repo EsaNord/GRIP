@@ -69,6 +69,8 @@ namespace GRIP
                 if (_grounded)
                 {
                     _playerBody.velocity = Vector3.up * _jumpForce;
+                    _playerAnimator.SetTrigger("Jumped");
+                    _playerAnimator.SetBool("Ground", false);
                 }
                 else
                 {
@@ -81,9 +83,7 @@ namespace GRIP
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                     }
-                }            
-                _playerAnimator.SetBool("Moving", false);
-                _playerAnimator.SetTrigger("Jumped");
+                }                
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -103,9 +103,15 @@ namespace GRIP
                 }
                 _playerRenderer.flipX = false;
             }                        
-            else
+            else if (_grounded)
             {                
-                _playerAnimator.SetBool("Moving", false);                
+                _playerAnimator.SetBool("Moving", false);
+                _playerAnimator.SetBool("Ground", true);
+            }
+            else if (!_grounded)
+            {
+                _playerAnimator.SetBool("Ground", false);
+                _playerAnimator.SetBool("Moving", false);
             }
         }
 
@@ -129,14 +135,12 @@ namespace GRIP
             if (right || left)
             {
                 _grounded = true;
-                Debug.Log("GROUND");
-                _playerAnimator.SetBool("Ground", true);
+                Debug.Log("GROUND");                
             }
             else
             {
                 _grounded = false;
-                Debug.Log("AIR");
-                _playerAnimator.SetBool("Ground", false);
+                Debug.Log("AIR");                
             }
             Debug.Log("Ground: " + "Right: " + right + " / " + "Left: " + left);
         }
@@ -164,7 +168,16 @@ namespace GRIP
                     _wallLeft = false;
                 }
             }            
-            Debug.Log("Wall: " + "Right: " + _wallLeft + " / " + "Left: " + _wallRight);
+            if (_wallRight && !_grounded)
+            {
+                _playerAnimator.SetTrigger("InWall");
+                _playerRenderer.flipX = false;
+            }
+            else if (_wallLeft && !_grounded)
+            {
+                _playerAnimator.SetTrigger("InWall");
+                _playerRenderer.flipX = true;
+            }
         }
     }
 }
