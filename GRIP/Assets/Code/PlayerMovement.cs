@@ -25,8 +25,7 @@ namespace GRIP
         private SpriteRenderer _playerRenderer;
         private Rigidbody2D _playerBody;
         private bool _wallLeft = false;
-        private bool _wallRight = false;
-        //private bool;
+        private bool _wallRight = false;        
 
         private void Awake()
         {
@@ -38,18 +37,15 @@ namespace GRIP
         private void CheckComponents()
         {
             if (_playerAnimator == null)
-            {
-                Debug.Log("No Animator");
+            {                
                 _playerAnimator = GetComponent<Animator>();
             }
             if (_playerRenderer == null)
-            {
-                Debug.Log("No Renderer");
+            {                
                 _playerRenderer = GetComponent<SpriteRenderer>();
             }
             if (_playerBody == null)
-            {
-                Debug.Log("No Rigidbody2d");
+            {                
                 _playerBody = GetComponent<Rigidbody2D>();
             }
         }
@@ -68,11 +64,10 @@ namespace GRIP
             {
                 if (_grounded)
                 {
-                    _playerBody.velocity = Vector3.up * _jumpForce;
+                    _playerBody.velocity = Vector3.up * _jumpForce;                                       
                 }
                 else
-                {
-                    Debug.Log("Walljump?");
+                {                    
                     if (_wallLeft && !_wallRight && !_grounded)
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.right) * _jumpForce;
@@ -81,8 +76,7 @@ namespace GRIP
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                     }
-                }            
-                _playerAnimator.SetBool("Moving", false);
+                }
                 _playerAnimator.SetTrigger("Jumped");
             }
             if (Input.GetKey(KeyCode.A))
@@ -104,8 +98,8 @@ namespace GRIP
                 _playerRenderer.flipX = false;
             }                        
             else
-            {                
-                _playerAnimator.SetBool("Moving", false);                
+            {
+                _playerAnimator.SetBool("Moving", false);
             }
         }
 
@@ -129,16 +123,14 @@ namespace GRIP
             if (right || left)
             {
                 _grounded = true;
-                Debug.Log("GROUND");
                 _playerAnimator.SetBool("Ground", true);
             }
             else
             {
                 _grounded = false;
-                Debug.Log("AIR");
                 _playerAnimator.SetBool("Ground", false);
-            }
-            Debug.Log("Ground: " + "Right: " + right + " / " + "Left: " + left);
+                               
+            }            
         }
 
         private void WallCheck()
@@ -164,7 +156,20 @@ namespace GRIP
                     _wallLeft = false;
                 }
             }            
-            Debug.Log("Wall: " + "Right: " + _wallLeft + " / " + "Left: " + _wallRight);
+            if (_wallRight && !_grounded)
+            {
+                _playerAnimator.SetBool("Wall", true);
+                _playerRenderer.flipX = false;
+            }
+            else if (_wallLeft && !_grounded)
+            {
+                _playerAnimator.SetBool("Wall", true);
+                _playerRenderer.flipX = true;
+            }
+            else
+            {
+                _playerAnimator.SetBool("Wall", false);
+            }
         }
     }
 }

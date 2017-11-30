@@ -37,8 +37,7 @@ namespace GRIP
         void Update()
         {
             if (_player == null)
-            {
-                Debug.Log("SEARCHING PLAYER....");
+            {                
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
             else

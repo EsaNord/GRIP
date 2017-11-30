@@ -43,15 +43,13 @@ namespace GRIP {
 
             if (_player != null)
             {
-                _checkpoint = _player.GetComponent<PlayerCollision>().LastCheckpoint;
-                Debug.Log("Checkpoint Search");
+                _checkpoint = _player.GetComponent<PlayerCollision>().LastCheckpoint;                
             }            
             if (_player == null && GameManager.instance.firstSpawn)
             {
                 DeathTimer();
                 if (_timePassed >= _spawnDelay)
-                {
-                    Debug.Log("Respawn");
+                {                    
                     PlayerRespawn();
                 }
             }
@@ -89,8 +87,7 @@ namespace GRIP {
                 _timerStarted = false;
             }
             else
-            {
-                Debug.Log("Defeat");                
+            {                         
                 GameManager.instance.playerWon = false;
                 SceneManager.LoadScene("EndSceen");
             }
@@ -108,8 +105,7 @@ namespace GRIP {
             }
 
             if (_nextLevel >= GameManager.instance.finalLevel)
-            {
-                Debug.Log("Victory");
+            {                
                 GameManager.instance.playerWon = true;
                 SceneManager.LoadScene("EndSceen");
             }

@@ -1,1 +1,1 @@
-Grapling hook power up ahead, mouse controlled. You can adjust 'rope' lengt with W & S. You can also reaim the hook while hanging from previous target.
+Placeholder tutorial text for grapplinghook power up. Length adjustment keys W & S. Reaimig possible while hanging from previous point.

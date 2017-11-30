@@ -80,8 +80,7 @@ namespace GRIP
 
             // If object is grappling hook power up
             if (collision.gameObject.tag == "HookPU")
-            {
-                Debug.Log("Grappling Hook Power Up  Found!");
+            {                
                 GameManager.instance.powerUpArray[0] = true;
                 Destroy(collision.gameObject);
             }

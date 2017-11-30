@@ -125,10 +125,7 @@ namespace GRIP
                     Hook();
                     RopeRendering();
                     
-                    _connected = true;
-
-                    //Debug.Log("Target PosX: " + _Hit.transform.position.x);
-                    //Debug.Log("Target PosY: " + (_Hit.transform.position.y - _Hit.collider.bounds.size.y / 2));
+                    _connected = true;                    
                 }                
             }
             if (_connected)
@@ -151,11 +148,7 @@ namespace GRIP
                 }
 
                 RopeRendering();
-                CheckRope(anchor);
-
-                //Debug.Log("Anchor: " + (_Hit.point - new Vector2(0, _Hit.collider.transform.position.y)));
-                //Debug.Log("Distance: " + _Joint2d.distance);
-                //Debug.Log("DistanceInt: " + Vector2.Distance(transform.position, _Hit.transform.position));
+                CheckRope(anchor);                
             }
 
             // Detects if left mouse button is lifted
@@ -170,8 +163,7 @@ namespace GRIP
         }
 
         private void CheckRope(Vector3 target) 
-        {
-            //Debug.Log("Distance: " + Vector2.Distance(target, transform.position));
+        {            
             RaycastHit2D broken = Physics2D.Raycast(transform.position, _targetPos - transform.position,
                 Vector2.Distance(target, transform.position), _obstacleLayer);
             if (broken.collider != null)
@@ -190,10 +182,7 @@ namespace GRIP
             _ropePoints[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             _ropePoints[1] = new Vector3(_hit.collider.transform.position.x,
                 (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
-
-            //Debug.Log("pos1: " + _ropePoints[0]);
-            //Debug.Log("pos2: " + _ropePoints[1]);
-
+            
             _ropeRenderer.SetPositions(_ropePoints);
             _ropeRenderer.enabled = true;
         }

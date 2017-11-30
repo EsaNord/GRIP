@@ -20,9 +20,7 @@ namespace GRIP
         }
             
         private void Start()
-        {
-            //_playerObject = GameManager.instance.player;
-
+        { 
             if (!GameManager.instance.firstSpawn)
             {
                 GameManager.instance.firstSpawn = true;

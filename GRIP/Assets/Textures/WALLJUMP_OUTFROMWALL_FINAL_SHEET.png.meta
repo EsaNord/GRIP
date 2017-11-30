@@ -1,15 +1,12 @@
 fileFormatVersion: 2
-guid: fa88765814200f644a3c8216069e83c8
-timeCreated: 1509536458
+guid: f3af5495e786ae34b9b03854a6824839
+timeCreated: 1511876284
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerBetaRunAnimation_0
-    21300002: PlayerBetaRunAnimation_1
-    21300004: PlayerBetaRunAnimation_2
-    21300006: PlayerBetaRunAnimation_3
-    21300008: PlayerBetaRunAnimation_4
-    21300010: PlayerBetaRunAnimation_5
+    21300000: WALLJUMP_OUTFROMWALL_FINAL_SHEET_0
+    21300002: WALLJUMP_OUTFROMWALL_FINAL_SHEET_1
+    21300004: WALLJUMP_OUTFROMWALL_FINAL_SHEET_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -97,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerBetaRunAnimation_0
+      name: WALLJUMP_OUTFROMWALL_FINAL_SHEET_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,13 +108,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerBetaRunAnimation_1
+      name: WALLJUMP_OUTFROMWALL_FINAL_SHEET_1
       rect:
         serializedVersion: 2
-        x: 100
+        x: 150
         y: 0
-        width: 100
-        height: 100
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,55 +122,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerBetaRunAnimation_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerBetaRunAnimation_3
+      name: WALLJUMP_OUTFROMWALL_FINAL_SHEET_2
       rect:
         serializedVersion: 2
         x: 300
         y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerBetaRunAnimation_4
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerBetaRunAnimation_5
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 100
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
