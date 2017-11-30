@@ -25,8 +25,7 @@ namespace GRIP
         private SpriteRenderer _playerRenderer;
         private Rigidbody2D _playerBody;
         private bool _wallLeft = false;
-        private bool _wallRight = false;
-        //private bool;
+        private bool _wallRight = false;        
 
         private void Awake()
         {
@@ -38,18 +37,15 @@ namespace GRIP
         private void CheckComponents()
         {
             if (_playerAnimator == null)
-            {
-                Debug.Log("No Animator");
+            {                
                 _playerAnimator = GetComponent<Animator>();
             }
             if (_playerRenderer == null)
-            {
-                Debug.Log("No Renderer");
+            {                
                 _playerRenderer = GetComponent<SpriteRenderer>();
             }
             if (_playerBody == null)
-            {
-                Debug.Log("No Rigidbody2d");
+            {                
                 _playerBody = GetComponent<Rigidbody2D>();
             }
         }
