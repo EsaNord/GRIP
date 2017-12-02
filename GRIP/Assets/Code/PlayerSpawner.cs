@@ -34,7 +34,7 @@ namespace GRIP
 
         private void InitialSpawn()
         {
-            _playerSpawn = new Vector2(0, -5);
+            _playerSpawn = new Vector2(-5, 36);
             
             _player = Instantiate(_playerObject, _playerSpawn, Quaternion.identity);
             GameManager.instance.playerLives = _player.GetComponent<PlayerCollision>().PlayerLives;
