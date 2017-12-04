@@ -50,10 +50,11 @@ namespace GRIP {
 
             _collected = 0;
             CheckCollectables();
-        }
+        }               
 
         private void CheckCollectables()
         {
+            Debug.Log("Checking Collectables");
             if (_hasPowerUps)
             {                
                 if (GameManager.instance.powerUpArray[_lvlPowerUp])
