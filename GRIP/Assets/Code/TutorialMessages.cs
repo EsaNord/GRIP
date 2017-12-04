@@ -41,7 +41,7 @@ namespace GRIP
 
             if (_dialoqueObject.tag == "Tutorial")
             {
-                _tutorialFile += (GameManager.instance.currentLevel + 1);               
+                _tutorialFile += (GameManager.instance.currentLevel + 1);                
                 message = Resources.Load(_tutorialFile).ToString();
             }
             else if (_dialoqueObject.tag == "Dialoque")
@@ -54,7 +54,15 @@ namespace GRIP
                 Debug.LogError("No Tag On Object");
             }
 
+            ResetString();
+
             return message;
-        }       
+        }   
+        
+        private void ResetString()
+        {
+            _tutorialFile = "Tutorial";
+            _dialoqueFile = "Dialoque";
+        }
     }
 }
