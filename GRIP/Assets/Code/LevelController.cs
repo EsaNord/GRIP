@@ -66,9 +66,7 @@ namespace GRIP {
 
             _playerLives.text = "Lives: " + GameManager.instance.playerLives;
             _playerScore.text = "" + GameManager.instance.score;
-            _collectables.text = "" + _player.GetComponent<PlayerCollision>().ColCollected + " / " + _levelCol;
-            Debug.Log("Coll" + _collected);
-            Debug.Log("All" + _levelCol);
+            _collectables.text = "" + _player.GetComponent<PlayerCollision>().ColCollected + " / " + _levelCol;            
         }
 
         private void DeathTimer()

@@ -22,7 +22,7 @@ namespace GRIP
 
         public bool[] powerUpArray = new bool[1];
         
-        public bool[] lvl1Col = new bool[3];
+        public bool[] lvl1Col = new bool[25];
         public bool[] lvl2Col = new bool[4];
         public bool[] lvl3Col = new bool[5];
 
