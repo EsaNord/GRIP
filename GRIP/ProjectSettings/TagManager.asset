@@ -15,6 +15,7 @@ TagManager:
   - Crosshair
   - HookPU
   - Tutorial
+  - Switch
   layers:
   - Default
   - TransparentFX

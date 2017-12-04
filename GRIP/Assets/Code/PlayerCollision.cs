@@ -55,14 +55,14 @@ namespace GRIP
             }
 
             // If collision if with death plane
-            if (collision.tag == "Killer")
+            else if (collision.tag == "Killer")
             {
                 Debug.Log("DEAD");
                 Destroy(this.gameObject);
             }
 
             // If collision is with checkpoint
-            if (collision.tag == "Checkpoint")
+            else if (collision.tag == "Checkpoint")
             {
                 Debug.Log("SPAWNSAVED");
 
@@ -79,14 +79,14 @@ namespace GRIP
             }
 
             // If object is grappling hook power up
-            if (collision.gameObject.tag == "HookPU")
-            {                
+            else if (collision.gameObject.tag == "HookPU")
+            {
                 GameManager.instance.powerUpArray[0] = true;
                 Destroy(collision.gameObject);
             }
 
             // If object is collectable
-            if (collision.gameObject.tag == "Collectable")
+            else if (collision.gameObject.tag == "Collectable")
             {
                 CollectableInfo collectable = collision.gameObject.GetComponent<CollectableInfo>();
                 GameManager.instance.score += collectable.GetPoints;
@@ -95,6 +95,19 @@ namespace GRIP
                     GameManager.instance.lvl1Col[collectable.GetValue] = true;
                 }
                 Destroy(collision.gameObject);
+            }
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Switch")
+            {
+                Debug.Log("Switch");
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    Debug.Log("Activate");
+                    collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
+                }
             }
         }
     }
