@@ -26,9 +26,9 @@ namespace GRIP {
         private Vector3 _checkpoint;        
         private bool _timerStarted;
         private int _nextLevel;
-        private float _timePassed;
-        private int _collected = 0;
+        private float _timePassed;        
         private int _levelCol;
+        private int _collected;
         
         public GameObject Player
         {
@@ -38,7 +38,7 @@ namespace GRIP {
         private void Start()
         {
             GetCollectableAmount();
-            CheckComponents();            
+            CheckComponents();           
         }
 
         // Update is called once per frame
@@ -64,9 +64,24 @@ namespace GRIP {
                 NextLevel();
             }
 
+            CollectableCheck();
+
             _playerLives.text = "Lives: " + GameManager.instance.playerLives;
             _playerScore.text = "" + GameManager.instance.score;
-            _collectables.text = "" + _player.GetComponent<PlayerCollision>().ColCollected + " / " + _levelCol;            
+            _collectables.text = "" + _collected + " / " + _levelCol;            
+        }
+
+        private void CollectableCheck()
+        {
+            if (this.gameObject.GetComponent<CollectableManager>().CheckCollected >
+                _player.GetComponent<PlayerCollision>().ColCollected)
+            {
+                _collected = this.gameObject.GetComponent<CollectableManager>().CheckCollected;
+            }
+            else
+            {
+                _collected = _player.GetComponent<PlayerCollision>().ColCollected;
+            }
         }
 
         private void DeathTimer()

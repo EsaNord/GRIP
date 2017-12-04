@@ -14,6 +14,12 @@ namespace GRIP {
         private bool[] _colCheckList;
         private bool _hasCollectables = false;
         private bool _hasPowerUps = false;
+        private int _collected = 0;
+
+        public int CheckCollected
+        {
+            get { return _collected; }
+        }
 
         private void Awake()
         {
@@ -33,8 +39,7 @@ namespace GRIP {
             else if (GameManager.instance.currentLevel == 2)
             {
                 _hasCollectables = true;
-                _hasPowerUps = true;
-                _lvlPowerUp = 1;
+                _hasPowerUps = false;                
                 _colCheckList = GameManager.instance.lvl3Col;
             }
             else
@@ -43,6 +48,7 @@ namespace GRIP {
                 _hasPowerUps = false;
             }
 
+            _collected = 0;
             CheckCollectables();
         }
 
@@ -67,6 +73,7 @@ namespace GRIP {
                     if (_colCheckList[i])
                     {
                         _collectables[i].SetActive(false);
+                        _collected++;
                     }
                     else
                     {

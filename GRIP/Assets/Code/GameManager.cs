@@ -21,10 +21,10 @@ namespace GRIP
         public string[] levels;
 
         public bool[] powerUpArray = new bool[1];
-        
-        public bool[] lvl1Col = new bool[25];
-        public bool[] lvl2Col = new bool[4];
-        public bool[] lvl3Col = new bool[5];
+
+        public bool[] lvl1Col;
+        public bool[] lvl2Col;
+        public bool[] lvl3Col;
 
         private void Awake()
         {
@@ -32,6 +32,10 @@ namespace GRIP
             {
                 "Level 1",  "Level 2", "Level 3"
             };
+
+            lvl1Col = new bool[25];
+            lvl2Col = new bool[4];
+            lvl3Col = new bool[5];
 
             finalLevel = levels.Length;
             Debug.Log("final: " + finalLevel + "/" + levels.Length);
