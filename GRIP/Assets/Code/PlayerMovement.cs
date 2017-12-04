@@ -52,10 +52,10 @@ namespace GRIP
 
         private void Update()
         {
-            CheckComponents();
+            //CheckComponents();
             GroundCheck();
             WallCheck();
-            Move();
+            Move();            
         }        
 
         private void Move()
@@ -76,8 +76,8 @@ namespace GRIP
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                     }
-                }
-                _playerAnimator.SetTrigger("Jumped");
+                }                
+                _playerAnimator.SetTrigger("Jumped");                
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -100,7 +100,7 @@ namespace GRIP
             else
             {
                 _playerAnimator.SetBool("Moving", false);
-            }
+            }            
         }
 
         private void GroundCheck()

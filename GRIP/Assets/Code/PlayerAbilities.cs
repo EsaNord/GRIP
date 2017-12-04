@@ -32,7 +32,7 @@ namespace GRIP
         private float _angle;
         private float _distance;
         private bool _blocked;
-
+        
         private void Awake()
         {
             _joint2d = GetComponent<DistanceJoint2D>();
@@ -145,7 +145,7 @@ namespace GRIP
                     Debug.Log("Down");
                     _joint2d.distance += _adjustDistance * Time.deltaTime;
                     
-                }
+                }                
 
                 RopeRendering();
                 CheckRope(anchor);                
@@ -158,8 +158,8 @@ namespace GRIP
                 _joint2d.enabled = false;
                 _connected = false;
                 _hook.SetActive(false);
-                _ropeRenderer.enabled = false;
-            }
+                _ropeRenderer.enabled = false;                
+            }            
         }
 
         private void CheckRope(Vector3 target) 

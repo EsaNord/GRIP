@@ -24,8 +24,7 @@ namespace GRIP
             {
                 Debug.Log("Open door");
                 this.gameObject.GetComponent<Animator>().SetBool("Activated", true);
-                _door.GetComponent<Animator>().SetBool("Open", true);
-                _door.GetComponent<BoxCollider2D>().enabled = false;                
+                _door.GetComponent<Animator>().SetBool("Open", true);                             
             }
         }
     }

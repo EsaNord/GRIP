@@ -11,6 +11,13 @@ namespace GRIP
 
         private Vector2 _checkPoint;
         private GameObject _lastCheckPoint;
+        private int _collected = 0;
+
+        public int ColCollected
+        {
+            get { return _collected; }
+            set { _collected = value; }
+        }
 
         public int PlayerLives
         {
@@ -55,14 +62,14 @@ namespace GRIP
             }
 
             // If collision if with death plane
-            else if (collision.tag == "Killer")
+            if (collision.tag == "Killer")
             {
                 Debug.Log("DEAD");
                 Destroy(this.gameObject);
             }
 
             // If collision is with checkpoint
-            else if (collision.tag == "Checkpoint")
+            if (collision.tag == "Checkpoint")
             {
                 Debug.Log("SPAWNSAVED");
 
@@ -79,14 +86,14 @@ namespace GRIP
             }
 
             // If object is grappling hook power up
-            else if (collision.gameObject.tag == "HookPU")
+            if (collision.gameObject.tag == "HookPU")
             {
                 GameManager.instance.powerUpArray[0] = true;
                 Destroy(collision.gameObject);
             }
 
             // If object is collectable
-            else if (collision.gameObject.tag == "Collectable")
+            if (collision.gameObject.tag == "Collectable")
             {
                 CollectableInfo collectable = collision.gameObject.GetComponent<CollectableInfo>();
                 GameManager.instance.score += collectable.GetPoints;
@@ -94,18 +101,23 @@ namespace GRIP
                 {
                     GameManager.instance.lvl1Col[collectable.GetValue] = true;
                 }
+                _collected++;
                 Destroy(collision.gameObject);
             }
-        }
 
+            if (collision.gameObject.tag == "Dialoque" &&
+                !this.gameObject.GetComponent<PlayerMovement>().isActiveAndEnabled)
+            {
+                this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+            }
+        }
+        
         private void OnTriggerStay2D(Collider2D collision)
         {
             if (collision.gameObject.tag == "Switch")
-            {
-                Debug.Log("Switch");
+            {                
                 if (Input.GetKeyDown(KeyCode.F))
-                {
-                    Debug.Log("Activate");
+                {                    
                     collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
                 }
             }

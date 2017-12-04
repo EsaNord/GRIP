@@ -37,6 +37,7 @@ namespace GRIP
             _playerSpawn = new Vector2(-5, 36);
             
             _player = Instantiate(_playerObject, _playerSpawn, Quaternion.identity);
+            _player.GetComponent<PlayerMovement>().enabled = false;
             GameManager.instance.playerLives = _player.GetComponent<PlayerCollision>().PlayerLives;
             GameManager.instance.exitPoint = -1;
         }

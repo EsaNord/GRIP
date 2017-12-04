@@ -67,7 +67,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerLives: {fileID: 114214499795033206, guid: 0de3e2af33064d54da9ea68dbebd96a0,
     type: 2}
-  _playerScore: {fileID: 114182595653157122, guid: 0de3e2af33064d54da9ea68dbebd96a0,
+  _playerScore: {fileID: 114286955943890306, guid: 0de3e2af33064d54da9ea68dbebd96a0,
+    type: 2}
+  _collectables: {fileID: 114182595653157122, guid: 0de3e2af33064d54da9ea68dbebd96a0,
     type: 2}
   _defeatText: {fileID: 1446623205126678, guid: 0de3e2af33064d54da9ea68dbebd96a0,
     type: 2}

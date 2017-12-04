@@ -12,6 +12,8 @@ namespace GRIP {
         [SerializeField]
         private Text _playerScore;
         [SerializeField]
+        private Text _collectables;
+        [SerializeField]
         private GameObject _defeatText;
         [SerializeField]
         private GameObject _pauseMenu;
@@ -25,14 +27,17 @@ namespace GRIP {
         private bool _timerStarted;
         private int _nextLevel;
         private float _timePassed;
-
+        private int _collected = 0;
+        private int _levelCol;
+        
         public GameObject Player
         {
             set { _player = value; }
-        }
+        }                
 
         private void Start()
         {
+            GetCollectableAmount();
             CheckComponents();            
         }
 
@@ -60,7 +65,10 @@ namespace GRIP {
             }
 
             _playerLives.text = "Lives: " + GameManager.instance.playerLives;
-            _playerScore.text = "" + GameManager.instance.score;            
+            _playerScore.text = "" + GameManager.instance.score;
+            _collectables.text = "" + _player.GetComponent<PlayerCollision>().ColCollected + " / " + _levelCol;
+            Debug.Log("Coll" + _collected);
+            Debug.Log("All" + _levelCol);
         }
 
         private void DeathTimer()
@@ -122,6 +130,22 @@ namespace GRIP {
             if (_player == null)
             {
                 _player = GameObject.FindGameObjectWithTag("Player");
+            }
+        }
+
+        private void GetCollectableAmount()
+        {
+            if (GameManager.instance.currentLevel == 0)
+            {
+                _levelCol = GameManager.instance.lvl1Col.Length;
+            }
+            else if (GameManager.instance.currentLevel == 1)
+            {
+                _levelCol = GameManager.instance.lvl2Col.Length;
+            }
+            else if (GameManager.instance.currentLevel == 2)
+            {
+                _levelCol = GameManager.instance.lvl3Col.Length;
             }
         }
     }
