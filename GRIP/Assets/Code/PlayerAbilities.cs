@@ -17,7 +17,7 @@ namespace GRIP
         [SerializeField]
         private GameObject _hook;
         [SerializeField]
-        private GameObject _crosshair;
+        private GameObject _crosshair;        
 
         private DistanceJoint2D _joint2d;
         private Vector3 _targetPos;
@@ -137,14 +137,12 @@ namespace GRIP
                 if (Input.GetKey(KeyCode.W))
                 {
                     Debug.Log("Up");
-                    _joint2d.distance -= _adjustDistance * Time.deltaTime;
-                    
+                    _joint2d.distance -= _adjustDistance * Time.deltaTime;                    
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
                     Debug.Log("Down");
-                    _joint2d.distance += _adjustDistance * Time.deltaTime;
-                    
+                    _joint2d.distance += _adjustDistance * Time.deltaTime;                    
                 }                
 
                 RopeRendering();
@@ -183,7 +181,7 @@ namespace GRIP
             _ropePoints[1] = new Vector3(_hit.collider.transform.position.x,
                 (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
             
-            _ropeRenderer.SetPositions(_ropePoints);
+            _ropeRenderer.SetPositions(_ropePoints);            
             _ropeRenderer.enabled = true;
         }
 

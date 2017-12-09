@@ -16,6 +16,7 @@ TagManager:
   - HookPU
   - Tutorial
   - Switch
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -30,12 +31,12 @@ TagManager:
   - Player
   - Background
   - Wall
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Trap
+  - Destroyer
+  - DialoqueBox
+  - InteractableObjects
+  - Collectable
+  - Ceiling
   - 
   - 
   - 

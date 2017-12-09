@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4172552974001468}
   - component: {fileID: 212126223095516328}
   - component: {fileID: 61637131199396442}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: GHookP
   m_TagString: HookPU
   m_Icon: {fileID: 0}

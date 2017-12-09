@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GRIP {
+namespace GRIP
+{
     public class CollectableManager : MonoBehaviour {
 
         [SerializeField]

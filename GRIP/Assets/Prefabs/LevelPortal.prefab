@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4002363846728544}
   - component: {fileID: 212577755229208798}
   - component: {fileID: 95641083901337568}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LevelPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

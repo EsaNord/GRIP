@@ -124,12 +124,14 @@ namespace GRIP
             {
                 _grounded = true;
                 _playerAnimator.SetBool("Ground", true);
+                Debug.Log("Grounded");
             }
             else
             {
                 _grounded = false;
                 _playerAnimator.SetBool("Ground", false);
-                               
+                Debug.Log("Air");
+
             }            
         }
 

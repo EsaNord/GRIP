@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4681993062346906}
   - component: {fileID: 61970350009939960}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FallDeath
   m_TagString: Killer
   m_Icon: {fileID: 0}
