@@ -23,6 +23,7 @@ namespace GRIP
         private bool _grounded;
         private Animator _playerAnimator;
         private SpriteRenderer _playerRenderer;
+        private PlayerAbilities _abillities;
         private Rigidbody2D _playerBody;
         private bool _wallLeft = false;
         private bool _wallRight = false;        
@@ -30,6 +31,7 @@ namespace GRIP
         private void Awake()
         {
             _playerAnimator = GetComponent<Animator>();
+            _abillities = GetComponent<PlayerAbilities>();
             _playerRenderer = GetComponent<SpriteRenderer>();
             _playerBody = GetComponent<Rigidbody2D>();            
         }
@@ -55,7 +57,14 @@ namespace GRIP
             //CheckComponents();
             GroundCheck();
             WallCheck();
-            Move();            
+            if (!_abillities.RopeConnected)
+            {
+                Move();
+            }
+            else
+            {
+                _abillities.RopeMove(_speed);
+            }
         }        
 
         private void Move()

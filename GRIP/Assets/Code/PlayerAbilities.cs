@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GRIP
 {
@@ -17,7 +15,11 @@ namespace GRIP
         [SerializeField]
         private GameObject _hook;
         [SerializeField]
-        private GameObject _crosshair;        
+        private GameObject _crosshair;
+        [SerializeField]
+        private GameObject _handStart;
+        [SerializeField]
+        private float _shoulderPosY = 0.35f;        
 
         private DistanceJoint2D _joint2d;
         private Vector3 _targetPos;
@@ -32,9 +34,35 @@ namespace GRIP
         private float _angle;
         private float _distance;
         private bool _blocked;
-        
+        private bool _createdHandTile = false;
+        private Animator _playerAnimator;
+        private SpriteRenderer _playerRenderer;
+
+        public bool RopeConnected
+        {
+            get { return _connected; }
+        }
+
+        public void RopeMove(float speed)
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Translate(Vector3.left * speed * Time.deltaTime);                
+                _playerAnimator.SetBool("InRope", true);                
+                _playerRenderer.flipX = true;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                transform.Translate(Vector3.right * speed * Time.deltaTime);                
+                 _playerAnimator.SetBool("InRope", true);                
+                _playerRenderer.flipX = false;
+            }
+        }
+
         private void Awake()
         {
+            _playerAnimator = GetComponent<Animator>();
+            _playerRenderer = GetComponent<SpriteRenderer>();
             _joint2d = GetComponent<DistanceJoint2D>();
             _ropeRenderer = GetComponent<LineRenderer>();
             _joint2d.enabled = false;
@@ -94,14 +122,17 @@ namespace GRIP
         // Grappling hook abilty. 
         private void GrapplingHook()
         {
+            Vector3 playerPos = transform.position;
+            playerPos.y += _shoulderPosY;
+
             // Detects if mouse's left button is pressed down and held
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Pressed");
-                _targetPos = _crosshairPos;               
+                _targetPos = _crosshairPos;                
 
-                _hit = Physics2D.Raycast(transform.position, _targetPos - transform.position, _distance, _targetLayer);
-                RaycastHit2D _obstacle = Physics2D.Raycast(transform.position, _targetPos - transform.position, _distance, _obstacleLayer);                
+                _hit = Physics2D.Raycast(playerPos, _targetPos - playerPos, _distance, _targetLayer);
+                RaycastHit2D _obstacle = Physics2D.Raycast(playerPos, _targetPos - playerPos, _distance, _obstacleLayer);                
                 
                 if (_obstacle.collider != null)
                 {
@@ -120,7 +151,7 @@ namespace GRIP
                     _joint2d.enabled = true;
                     _joint2d.connectedBody = _hit.collider.gameObject.GetComponent<Rigidbody2D>();
                     _joint2d.connectedAnchor = new Vector2(0, (0 - (_hit.collider.bounds.size.y / 3)));
-                    _joint2d.distance = Vector2.Distance(transform.position, _hit.transform.position);
+                    _joint2d.distance = Vector2.Distance(playerPos, _hit.transform.position);
 
                     Hook();
                     RopeRendering();
@@ -132,7 +163,7 @@ namespace GRIP
             {
                 Vector3 anchor = new Vector3(_hit.collider.transform.position.x,
                     (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
-                Debug.DrawRay(transform.position, (anchor - transform.position), Color.red);
+                Debug.DrawRay(transform.position, (anchor - playerPos), Color.red);
                 Debug.Log("Up or Down");
                 if (Input.GetKey(KeyCode.W))
                 {
@@ -143,10 +174,11 @@ namespace GRIP
                 {
                     Debug.Log("Down");
                     _joint2d.distance += _adjustDistance * Time.deltaTime;                    
-                }                
+                }
 
+                HandStart(playerPos, anchor);
                 RopeRendering();
-                CheckRope(anchor);                
+                CheckRope(anchor, playerPos);                
             }
 
             // Detects if left mouse button is lifted
@@ -156,19 +188,21 @@ namespace GRIP
                 _joint2d.enabled = false;
                 _connected = false;
                 _hook.SetActive(false);
-                _ropeRenderer.enabled = false;                
+                _handStart.SetActive(false);
+                _ropeRenderer.enabled = false;
+                _playerAnimator.SetBool("InRope", false);
             }            
         }
 
-        private void CheckRope(Vector3 target) 
+        private void CheckRope(Vector3 target, Vector3 playerPos) 
         {            
-            RaycastHit2D broken = Physics2D.Raycast(transform.position, _targetPos - transform.position,
-                Vector2.Distance(target, transform.position), _obstacleLayer);
+            RaycastHit2D broken = Physics2D.Raycast(playerPos, _targetPos - playerPos,
+                Vector2.Distance(target, playerPos), _obstacleLayer);
             if (broken.collider != null)
             {
                 _connected = false;
             }
-            else if (Vector2.Distance(target, transform.position) > _maxDistance)
+            else if (Vector2.Distance(target, playerPos) > _maxDistance)
             {
                 _connected = false;
             }
@@ -177,7 +211,7 @@ namespace GRIP
         // Sets rope's starting and ending points for LineRenderer.
         private void RopeRendering()
         {
-            _ropePoints[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            _ropePoints[0] = new Vector3(transform.position.x, transform.position.y + _shoulderPosY, transform.position.z);
             _ropePoints[1] = new Vector3(_hit.collider.transform.position.x,
                 (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
             
@@ -199,6 +233,27 @@ namespace GRIP
             _hook.SetActive(true);
             _hook.transform.position = new Vector3(_hit.collider.transform.position.x,
                     (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);            
+        }
+
+        private void HandStart(Vector3 playerPos, Vector3 target)
+        {
+            if (!_createdHandTile)
+            {
+                _handStart.SetActive(true);                
+                _handStart = Instantiate(_handStart);
+                _createdHandTile = true;
+            }
+
+            _handStart.SetActive(true);
+            _handStart.transform.position = playerPos;
+
+            Vector3 rotationTarget = target;
+            rotationTarget.z = 0f;
+            rotationTarget.x = rotationTarget.x - playerPos.x;
+            rotationTarget.y = rotationTarget.y - playerPos.y;
+
+            float angle = Mathf.Atan2(rotationTarget.y, rotationTarget.x) * Mathf.Rad2Deg;
+            _handStart.transform.rotation = Quaternion.Euler(new Vector3(playerPos.x, playerPos.y, angle));
         }
     }
 }
