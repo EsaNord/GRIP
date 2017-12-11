@@ -51,11 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e5fdff917422742b54c783070c24e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxVol: 0
-  musicVol: 0
-  step: {fileID: 0}
-  death: {fileID: 0}
-  collect: {fileID: 0}
-  hookHit: {fileID: 0}
-  bgMusic: {fileID: 0}
-  ambient: {fileID: 0}
+  sounds: []
+  audioSrcPrefab: {fileID: 1175811245365886, guid: e33d9c95a1d74ab46bc9503fbe3492be,
+    type: 2}
+  volume: 1
+  audioSrcPoolSize: 5
+  flexiblePoolSize: 0
