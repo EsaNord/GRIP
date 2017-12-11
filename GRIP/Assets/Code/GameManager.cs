@@ -17,6 +17,10 @@ namespace GRIP
         public int finalLevel;
         public string lastCheckpointName;
         public bool changeLevel;
+        public float effectVolume;
+        public bool justDied;
+        public bool checkDone;
+        public int collected;
 
         public string[] levels;
 
@@ -58,6 +62,8 @@ namespace GRIP
             score = 0;
             currentLevel = 0;
             lastCheckpointName = null;
+            justDied = false;
+            checkDone = false;
 
             ResetCollectables();
         }

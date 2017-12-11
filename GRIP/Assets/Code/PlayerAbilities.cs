@@ -253,7 +253,7 @@ namespace GRIP
             rotationTarget.y = rotationTarget.y - playerPos.y;
 
             float angle = Mathf.Atan2(rotationTarget.y, rotationTarget.x) * Mathf.Rad2Deg;
-            _handStart.transform.rotation = Quaternion.Euler(new Vector3(playerPos.x, playerPos.y, angle));
+            _handStart.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
 }

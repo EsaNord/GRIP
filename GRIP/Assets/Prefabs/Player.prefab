@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1403525788616442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.93255, y: -7.8860855, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,18 +80,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003435135, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
-    drawMode: 1
+    drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5121422, y: 1}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!95 &95204179157734570
 Animator:
@@ -135,14 +135,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _jumpForce: 5
-  _distance: 0.7
-  _wallDistance: 0.8
+  _distance: 1
+  _wallDistance: 1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 768
   _wallLayer:
     serializedVersion: 2
     m_Bits: 4608
+  step1: {fileID: 8300000, guid: e1fde4c228122d645928b8cfa2c9e6da, type: 3}
+  step2: {fileID: 8300000, guid: d22d5470436e3994e8de008efbc3d8cb, type: 3}
+  jump: {fileID: 8300000, guid: c9f27a13ca7d38f4a8672aaf77e66816, type: 3}
 --- !u!114 &114554833785606406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,7 +168,7 @@ MonoBehaviour:
   _hook: {fileID: 1259129216387882, guid: f5ef20b4710490448b0e51cbf9670006, type: 2}
   _crosshair: {fileID: 1393936109485866, guid: 69b9e226978334447b028bd632765538, type: 2}
   _handStart: {fileID: 1771035853811192, guid: 0c0b63c58bc41514bb21b1e23c38d9d8, type: 2}
-  _shoulderPos: 0.15
+  _shoulderPosY: 0.5
 --- !u!120 &120079229145242512
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -288,8 +291,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 0
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

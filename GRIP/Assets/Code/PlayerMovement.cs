@@ -18,7 +18,7 @@ namespace GRIP
         [SerializeField]
         private LayerMask _groundLayer;
         [SerializeField]
-        private LayerMask _wallLayer;
+        private LayerMask _wallLayer;        
 
         private bool _grounded;
         private Animator _playerAnimator;
@@ -34,27 +34,11 @@ namespace GRIP
             _abillities = GetComponent<PlayerAbilities>();
             _playerRenderer = GetComponent<SpriteRenderer>();
             _playerBody = GetComponent<Rigidbody2D>();            
-        }
-
-        private void CheckComponents()
-        {
-            if (_playerAnimator == null)
-            {                
-                _playerAnimator = GetComponent<Animator>();
-            }
-            if (_playerRenderer == null)
-            {                
-                _playerRenderer = GetComponent<SpriteRenderer>();
-            }
-            if (_playerBody == null)
-            {                
-                _playerBody = GetComponent<Rigidbody2D>();
-            }
-        }
+        }        
 
         private void Update()
         {
-            //CheckComponents();
+            
             GroundCheck();
             WallCheck();
             if (!_abillities.RopeConnected)
@@ -85,7 +69,8 @@ namespace GRIP
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                     }
-                }                
+                }
+                SFXPlayer.Instance.Play(Sound.Jump);
                 _playerAnimator.SetTrigger("Jumped");                
             }
             if (Input.GetKey(KeyCode.A))

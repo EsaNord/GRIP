@@ -83,7 +83,11 @@ namespace GRIP
                 _player = Instantiate(_playerObject, _playerSpawn, Quaternion.identity);
             }
 
+            GameManager.instance.justDied = false;
+            GameManager.instance.checkDone = false;
+            _player.GetComponent<PlayerCollision>().ColCollected = GameManager.instance.collected;
             _lc.Player = _player;
+
         }
     }
 }

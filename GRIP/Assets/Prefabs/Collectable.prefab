@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212903588783661356}
   - component: {fileID: 61124088502098814}
   - component: {fileID: 114895826898023002}
+  - component: {fileID: 95018144185301352}
   m_Layer: 17
   m_Name: Collectable
   m_TagString: Collectable
@@ -67,6 +68,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &95018144185301352
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679300744839872}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ce7bf4ebc6981249b1f9417e0159de1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114895826898023002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,7 +130,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dde8f3f794b15784e8c9bcfb7a7f9332, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38b630dd5046e674aa6d82a53df2b5a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -64,7 +64,10 @@ namespace GRIP
             // If collision if with death plane
             if (collision.tag == "Killer")
             {
+                SFXPlayer.Instance.Play(Sound.Death);
                 Debug.Log("DEAD");
+                GameManager.instance.justDied = true;
+                GameManager.instance.checkDone = false;
                 Destroy(this.gameObject);
             }
 
@@ -72,6 +75,8 @@ namespace GRIP
             if (collision.tag == "Checkpoint")
             {
                 Debug.Log("SPAWNSAVED");
+
+                SFXPlayer.Instance.Play(Sound.Checkpoint);
 
                 if (GameManager.instance.lastCheckpointName != null)
                 {
@@ -88,6 +93,7 @@ namespace GRIP
             // If object is grappling hook power up
             if (collision.gameObject.tag == "HookPU")
             {
+                SFXPlayer.Instance.Play(Sound.Collect);
                 GameManager.instance.powerUpArray[0] = true;
                 Destroy(collision.gameObject);
             }
@@ -95,6 +101,7 @@ namespace GRIP
             // If object is collectable
             if (collision.gameObject.tag == "Collectable")
             {
+                //SFXPlayer.Instance.Play(Sound.Collect);
                 CollectableInfo collectable = collision.gameObject.GetComponent<CollectableInfo>();
                 GameManager.instance.score += collectable.GetPoints;
                 if (GameManager.instance.currentLevel == 0)
@@ -102,7 +109,7 @@ namespace GRIP
                     GameManager.instance.lvl1Col[collectable.GetValue] = true;
                 }
                 _collected++;
-                Destroy(collision.gameObject);
+                collision.gameObject.SetActive(false);
             }
 
             if (collision.gameObject.tag == "Dialoque" &&

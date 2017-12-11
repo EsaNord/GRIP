@@ -61,6 +61,7 @@ namespace GRIP {
             if (GameManager.instance.changeLevel)
             {
                 GameManager.instance.changeLevel = false;
+                GameManager.instance.collected = 0;
                 NextLevel();
             }
 
@@ -73,10 +74,14 @@ namespace GRIP {
 
         private void CollectableCheck()
         {
-            if (this.gameObject.GetComponent<CollectableManager>().CheckCollected >
+            if (!GameManager.instance.justDied && this.gameObject.GetComponent<CollectableManager>().CheckCollected >
                 _player.GetComponent<PlayerCollision>().ColCollected)
             {
                 _collected = this.gameObject.GetComponent<CollectableManager>().CheckCollected;
+            }
+            else if (GameManager.instance.justDied)
+            {
+                this.gameObject.GetComponent<CollectableManager>().RespawnColCheck();
             }
             else
             {

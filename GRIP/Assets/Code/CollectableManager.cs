@@ -22,12 +22,30 @@ namespace GRIP
             get { return _collected; }
         }
 
-        private void Awake()
+        public void RespawnColCheck()
+        {
+            if (!GameManager.instance.checkDone)
+            {
+                _collected = 0;
+                LevelInfo();
+                for (int i = 0; i < _collectables.Length; i++)
+                {
+                    if (_colCheckList[i])
+                    {                        
+                        _collected++;
+                    }                   
+                }
+                GameManager.instance.checkDone = true;
+                GameManager.instance.collected = _collected;
+            }
+        }
+
+        private void LevelInfo()
         {
             if (GameManager.instance.currentLevel == 0)
             {
                 _hasCollectables = true;
-                _hasPowerUps = false;                
+                _hasPowerUps = false;
                 _colCheckList = GameManager.instance.lvl1Col;
             }
             else if (GameManager.instance.currentLevel == 1)
@@ -40,7 +58,7 @@ namespace GRIP
             else if (GameManager.instance.currentLevel == 2)
             {
                 _hasCollectables = true;
-                _hasPowerUps = false;                
+                _hasPowerUps = false;
                 _colCheckList = GameManager.instance.lvl3Col;
             }
             else
@@ -48,6 +66,11 @@ namespace GRIP
                 _hasCollectables = false;
                 _hasPowerUps = false;
             }
+        }
+
+        private void Awake()
+        {
+            LevelInfo();
 
             _collected = 0;
             CheckCollectables();
