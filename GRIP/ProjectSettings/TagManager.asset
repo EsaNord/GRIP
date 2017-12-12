@@ -37,7 +37,7 @@ TagManager:
   - InteractableObjects
   - Collectable
   - Ceiling
-  - 
+  - LevelChange
   - 
   - 
   - 

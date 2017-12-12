@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4495330369907234}
   - component: {fileID: 61930715661783534}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Entrance
   m_TagString: Entrance
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4948472149729422}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: LevelChangeAreas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4733030810146480}
   - component: {fileID: 61343174237580556}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Exit
   m_TagString: Exit
   m_Icon: {fileID: 0}

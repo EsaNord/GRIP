@@ -57,7 +57,7 @@ namespace GRIP
                 {
                     GameManager.instance.exitPoint = 1;
                     Debug.Log("Exit point");
-                }
+                }                
                 GameManager.instance.changeLevel = true;
             }
 
