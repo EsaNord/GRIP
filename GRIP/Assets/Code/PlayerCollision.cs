@@ -101,7 +101,7 @@ namespace GRIP
             // If object is collectable
             if (collision.gameObject.tag == "Collectable")
             {
-                //SFXPlayer.Instance.Play(Sound.Collect);
+                SFXPlayer.Instance.Play(Sound.Collect);
                 CollectableInfo collectable = collision.gameObject.GetComponent<CollectableInfo>();
                 GameManager.instance.score += collectable.GetPoints;
                 if (GameManager.instance.currentLevel == 0)

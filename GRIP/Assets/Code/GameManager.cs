@@ -18,6 +18,7 @@ namespace GRIP
         public string lastCheckpointName;
         public bool changeLevel;
         public float effectVolume;
+        public float musicVolume;
         public bool justDied;
         public bool checkDone;
         public int collected;
@@ -41,6 +42,9 @@ namespace GRIP
             lvl2Col = new bool[4];
             lvl3Col = new bool[5];
 
+            effectVolume = 0.5f;
+            musicVolume = 0.5f;
+
             finalLevel = levels.Length;
             Debug.Log("final: " + finalLevel + "/" + levels.Length);
 
@@ -53,7 +57,7 @@ namespace GRIP
             {
                 Destroy(gameObject);
             }
-        }
+        }        
 
         public void Reset()
         {            

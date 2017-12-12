@@ -43,6 +43,7 @@ namespace GRIP
 
             if (collision.gameObject.tag == "Player")
             {
+                SFXPlayer.Instance.Play(Sound.Death);
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
             }

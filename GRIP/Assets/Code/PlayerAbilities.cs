@@ -156,7 +156,8 @@ namespace GRIP
                     Hook();
                     RopeRendering();
                     
-                    _connected = true;                    
+                    _connected = true;
+                    SFXPlayer.Instance.Play(Sound.HookHit);
                 }                
             }
             if (_connected)

@@ -114,13 +114,19 @@ namespace GRIP
         /// </summary>
         private List<AudioSource> audioSrcPool;
 
+        public float Volume
+        {
+            set { volume = value; }
+            get { return volume; }
+        }
+
         /// <summary>
         /// The object is initialized on awake.
         /// </summary>
         private void Awake()
         {
             if (instance == null)
-            {
+            {                
                 instance = this;
             }
             else if (instance != this)
@@ -131,7 +137,7 @@ namespace GRIP
 
             Init();
         }
-
+        
         /// <summary>
         /// Initializes the SFX player.
         /// </summary>
@@ -141,8 +147,8 @@ namespace GRIP
             InitPool();
 
             // Sets the volume
-            //volume = GameManager.instance.effectVolume;
-            volume = 1f;
+            volume = GameManager.instance.effectVolume;
+            
             // Sets the SFX player to not be destroyed when changing scene
             DontDestroyOnLoad(gameObject);
         }
@@ -210,7 +216,7 @@ namespace GRIP
         private void Update()
         {
             // Returns any finished AudioSource to the pool to be used again
-            ReturnFinishedAudioSrcsToPool();
+            ReturnFinishedAudioSrcsToPool();            
         }
 
         /// <summary>

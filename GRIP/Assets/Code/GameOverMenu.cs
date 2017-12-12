@@ -17,6 +17,7 @@ namespace GRIP
 
         public void MainMenu()
         {
+            SFXPlayer.Instance.Play(Sound.MenuClick);
             SceneManager.LoadScene("MainMenu");
         }
 
