@@ -46042,7 +46042,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4733030810146480, guid: cc3770ce03a972743b81e418a033c0b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 70.13
       objectReference: {fileID: 0}
     - target: {fileID: 4733030810146480, guid: cc3770ce03a972743b81e418a033c0b5, type: 2}
       propertyPath: m_LocalScale.x
