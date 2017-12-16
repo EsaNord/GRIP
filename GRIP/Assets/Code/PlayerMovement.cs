@@ -26,8 +26,7 @@ namespace GRIP
         private PlayerAbilities _abillities;
         private Rigidbody2D _playerBody;
         private bool _wallLeft = false;
-        private bool _wallRight = false;
-        private bool _firstPlayed = false;
+        private bool _wallRight = false;        
 
         private void Awake()
         {
@@ -58,20 +57,22 @@ namespace GRIP
             {
                 if (_grounded)
                 {
-                    _playerBody.velocity = Vector3.up * _jumpForce;                                       
+                    _playerBody.velocity = Vector3.up * _jumpForce;
+                    SFXPlayer.Instance.Play(Sound.Jump);
                 }
                 else
                 {                    
                     if (_wallLeft && !_wallRight && !_grounded)
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.right) * _jumpForce;
+                        SFXPlayer.Instance.Play(Sound.Jump);
                     }
                     else if (!_wallLeft && _wallRight && !_grounded)
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
+                        SFXPlayer.Instance.Play(Sound.Jump);
                     }
-                }
-                SFXPlayer.Instance.Play(Sound.Jump);
+                }                
                 _playerAnimator.SetTrigger("Jumped");                
             }
             if (Input.GetKey(KeyCode.A))
