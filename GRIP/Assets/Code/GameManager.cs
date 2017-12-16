@@ -39,8 +39,8 @@ namespace GRIP
             };
 
             lvl1Col = new bool[25];
-            lvl2Col = new bool[4];
-            lvl3Col = new bool[5];
+            lvl2Col = new bool[25];
+            lvl3Col = new bool[25];
 
             effectVolume = 0.5f;
             musicVolume = 0.5f;
