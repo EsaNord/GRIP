@@ -95,7 +95,6 @@ namespace GRIP
             else
             {
                 _playerAnimator.SetBool("Moving", false);
-                _moveing = false;
             }            
         }
 

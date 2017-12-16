@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _jumpForce: 5
+  _jumpForce: 4.5
   _distance: 1
   _wallDistance: 1
   _groundLayer:
@@ -143,9 +143,6 @@ MonoBehaviour:
   _wallLayer:
     serializedVersion: 2
     m_Bits: 4608
-  step1: {fileID: 8300000, guid: e1fde4c228122d645928b8cfa2c9e6da, type: 3}
-  step2: {fileID: 8300000, guid: d22d5470436e3994e8de008efbc3d8cb, type: 3}
-  jump: {fileID: 8300000, guid: c9f27a13ca7d38f4a8672aaf77e66816, type: 3}
 --- !u!114 &114554833785606406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,7 +249,6 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 1
-    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!212 &212325920940721386
@@ -295,8 +291,6 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!232 &232385964542724780
 DistanceJoint2D:
   m_ObjectHideFlags: 1
