@@ -8,13 +8,14 @@ namespace GRIP
     {
 
         [SerializeField]
-        private GameObject _door;
+        private GameObject[] _door;
 
         private bool _open = false;
 
         public bool Activated
         {
             set { _open = value; }
+            get { return _open; }
         }
 
         // Update is called once per frame
@@ -24,7 +25,10 @@ namespace GRIP
             {
                 Debug.Log("Open door");
                 this.gameObject.GetComponent<Animator>().SetBool("Activated", true);
-                _door.GetComponent<Animator>().SetBool("Open", true);                             
+                for (int i = 0; i < _door.Length; i++)
+                {
+                    _door[i].GetComponent<Animator>().SetBool("Open", true);
+                }                             
             }
         }
     }

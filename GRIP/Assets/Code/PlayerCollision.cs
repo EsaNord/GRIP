@@ -94,6 +94,8 @@ namespace GRIP
             if (collision.gameObject.tag == "HookPU")
             {
                 SFXPlayer.Instance.Play(Sound.Collect);
+                MusicPlayer.Instance.Stop();
+                MusicPlayer.Instance.PlayTrack(1);
                 GameManager.instance.powerUpArray[0] = true;
                 Destroy(collision.gameObject);
             }

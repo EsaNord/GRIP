@@ -25,7 +25,7 @@ namespace GRIP
 
         private void Awake()
         {
-            _musicVol.value = GameManager.instance.musicVolume;
+            _musicVol.value = MusicPlayer.Instance.Volume;
             _sfxVol.value = SFXPlayer.Instance.Volume;
         }
 
@@ -71,7 +71,7 @@ namespace GRIP
 
         public void MusicVol()
         {
-            GameManager.instance.musicVolume = _musicVol.value;
+            MusicPlayer.Instance.Volume = _musicVol.value;
         }
 
         public void SFXVol()

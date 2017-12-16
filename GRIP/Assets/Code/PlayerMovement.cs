@@ -26,7 +26,8 @@ namespace GRIP
         private PlayerAbilities _abillities;
         private Rigidbody2D _playerBody;
         private bool _wallLeft = false;
-        private bool _wallRight = false;        
+        private bool _wallRight = false;
+        private bool _firstPlayed = false;
 
         private void Awake()
         {
@@ -48,7 +49,7 @@ namespace GRIP
             else
             {
                 _abillities.RopeMove(_speed);
-            }
+            }            
         }        
 
         private void Move()
@@ -78,7 +79,7 @@ namespace GRIP
                 transform.Translate(Vector3.left * _speed * Time.deltaTime);
                 if (_grounded)
                 {                    
-                    _playerAnimator.SetBool("Moving", true);
+                    _playerAnimator.SetBool("Moving", true);                    
                 }
                 _playerRenderer.flipX = true;
             }
@@ -87,13 +88,14 @@ namespace GRIP
                 transform.Translate(Vector3.right * _speed * Time.deltaTime);
                 if (_grounded)
                 {                    
-                    _playerAnimator.SetBool("Moving", true);
+                    _playerAnimator.SetBool("Moving", true);                    
                 }
                 _playerRenderer.flipX = false;
             }                        
             else
             {
                 _playerAnimator.SetBool("Moving", false);
+                _moveing = false;
             }            
         }
 

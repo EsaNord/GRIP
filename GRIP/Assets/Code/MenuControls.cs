@@ -20,7 +20,8 @@ namespace GRIP
         private void Start()
         {
             _musicVol.value = GameManager.instance.musicVolume;
-            _sfxVol.value = GameManager.instance.effectVolume;            
+            _sfxVol.value = GameManager.instance.effectVolume;
+            MusicPlayer.Instance.PlayTrack(1);
         }
 
         public void NewGame()
@@ -28,6 +29,8 @@ namespace GRIP
             SFXPlayer.Instance.Play(Sound.MenuClick);
             GameManager.instance.Reset();
             SceneManager.LoadScene("Level 1");
+            MusicPlayer.Instance.Stop();
+            MusicPlayer.Instance.PlayTrack(0);
         }
 
         public void Options()
@@ -45,7 +48,7 @@ namespace GRIP
 
         public void MusicVol()
         {
-            GameManager.instance.musicVolume = _musicVol.value;
+            MusicPlayer.Instance.Volume = _musicVol.value;
         }
 
         public void SFXVol()
