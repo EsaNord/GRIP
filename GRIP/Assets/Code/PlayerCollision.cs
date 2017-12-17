@@ -57,7 +57,8 @@ namespace GRIP
                 {
                     GameManager.instance.exitPoint = 1;
                     Debug.Log("Exit point");
-                }                
+                }
+                SFXPlayer.Instance.Play(Sound.LevelEnd);
                 GameManager.instance.changeLevel = true;
             }
 
@@ -76,24 +77,29 @@ namespace GRIP
             {
                 Debug.Log("SPAWNSAVED");
 
-                SFXPlayer.Instance.Play(Sound.Checkpoint);
+                if (!collision.gameObject.GetComponent<CheckpointInfo>().Activated)
+                {
+                    SFXPlayer.Instance.Play(Sound.Checkpoint);
+                }
 
                 if (GameManager.instance.lastCheckpointName != null)
                 {
                     _lastCheckPoint = GameObject.Find(GameManager.instance.lastCheckpointName);
                     _lastCheckPoint.GetComponent<Animator>().SetBool("visited", false);
+                    collision.gameObject.GetComponent<CheckpointInfo>().Activated = false;
                 }
 
                 GameManager.instance.lastCheckpointName = collision.name;
                 _lastCheckPoint = GameObject.Find(GameManager.instance.lastCheckpointName);
                 _lastCheckPoint.GetComponent<Animator>().SetBool("visited", true);
+                collision.gameObject.GetComponent<CheckpointInfo>().Activated = true;
                 RespawnPoint();
             }
 
             // If object is grappling hook power up
             if (collision.gameObject.tag == "HookPU")
             {
-                SFXPlayer.Instance.Play(Sound.Collect);
+                SFXPlayer.Instance.Play(Sound.PowerUp);
                 MusicPlayer.Instance.Stop();
                 MusicPlayer.Instance.PlayTrack(1);
                 GameManager.instance.powerUpArray[0] = true;
@@ -128,6 +134,7 @@ namespace GRIP
                 if (Input.GetKey(KeyCode.F))
                 {                    
                     collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
+                    SFXPlayer.Instance.Play(Sound.Lever);
                 }
             }
         }

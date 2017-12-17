@@ -42,7 +42,13 @@ namespace GRIP
         HookHit = 4,
         MenuClick = 5,
         Jump = 6,
-        Checkpoint = 7
+        Checkpoint = 7,
+        Lever = 8,
+        Door = 9,
+        RockStart = 10,
+        RockHit = 11,
+        PowerUp = 12,
+        LevelEnd = 13
     }
 
     public class SFXPlayer : MonoBehaviour

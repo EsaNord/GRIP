@@ -150,7 +150,7 @@ namespace GRIP
                 {
                     _joint2d.enabled = true;
                     _joint2d.connectedBody = _hit.collider.gameObject.GetComponent<Rigidbody2D>();
-                    _joint2d.connectedAnchor = new Vector2(0, (0 - (_hit.collider.bounds.size.y / 3)));
+                    _joint2d.connectedAnchor = new Vector2(0, (0 - (_hit.collider.bounds.size.y / 4)));
                     _joint2d.distance = Vector2.Distance(playerPos, _hit.transform.position);
 
                     Hook();
@@ -163,7 +163,7 @@ namespace GRIP
             if (_connected)
             {
                 Vector3 anchor = new Vector3(_hit.collider.transform.position.x,
-                    (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
+                    (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 4), 0);
                 Debug.DrawRay(transform.position, (anchor - playerPos), Color.red);
                 Debug.Log("Up or Down");
                 if (Input.GetKey(KeyCode.W))
@@ -214,7 +214,7 @@ namespace GRIP
         {
             _ropePoints[0] = new Vector3(transform.position.x, transform.position.y + _shoulderPosY, transform.position.z);
             _ropePoints[1] = new Vector3(_hit.collider.transform.position.x,
-                (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);
+                (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 4), 0);
             
             _ropeRenderer.SetPositions(_ropePoints);            
             _ropeRenderer.enabled = true;
@@ -233,7 +233,7 @@ namespace GRIP
 
             _hook.SetActive(true);
             _hook.transform.position = new Vector3(_hit.collider.transform.position.x,
-                    (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 2), 0);            
+                    (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 4), 0);            
         }
 
         private void HandStart(Vector3 playerPos, Vector3 target)

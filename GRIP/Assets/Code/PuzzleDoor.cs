@@ -11,6 +11,7 @@ namespace GRIP
 
         private bool _open;
         private bool _closed;
+        private bool _played;
 
         private void Update()
         {
@@ -19,6 +20,11 @@ namespace GRIP
             if (_open)
             {
                 this.gameObject.GetComponent<Animator>().SetBool("Open", true);
+                if (!_played)
+                {
+                    SFXPlayer.Instance.Play(Sound.Door);
+                    _played = true;
+                }
             }
         }
 
