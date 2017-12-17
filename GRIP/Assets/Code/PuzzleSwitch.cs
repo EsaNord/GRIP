@@ -28,6 +28,7 @@ namespace GRIP
                 for (int i = 0; i < _door.Length; i++)
                 {
                     _door[i].GetComponent<Animator>().SetBool("Open", true);
+                    SFXPlayer.Instance.Play(Sound.Door);
                 }                             
             }
         }

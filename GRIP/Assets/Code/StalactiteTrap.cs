@@ -13,6 +13,7 @@ namespace GRIP
 
         private float _timePassed = 0f;
         private bool _triggered = false;
+        private bool _played;
 
         public bool Triggered
         {
@@ -25,6 +26,11 @@ namespace GRIP
             if (_triggered)
             {
                 _timePassed += Time.deltaTime;
+                if (!_played)
+                {
+                    SFXPlayer.Instance.Play(Sound.RockStart);
+                    _played = true;
+                }
             }
             if (_timePassed >= _delayTime)
             {
@@ -52,6 +58,7 @@ namespace GRIP
             {
                 Destroy(this.gameObject);
             }
+            SFXPlayer.Instance.Play(Sound.RockHit);
         }
     }
 }
