@@ -28,7 +28,7 @@ namespace GRIP
         {            
             SFXPlayer.Instance.Play(Sound.MenuClick);
             GameManager.instance.Reset();
-            SceneManager.LoadScene("Level 1"); 
+            SceneManager.LoadScene("Level 1");
             MusicPlayer.Instance.Stop();
             MusicPlayer.Instance.PlayTrack(0);
         }

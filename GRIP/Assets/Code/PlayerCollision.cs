@@ -131,7 +131,7 @@ namespace GRIP
         {
             if (collision.gameObject.tag == "Switch")
             {                
-                if (Input.GetKey(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.F))
                 {                    
                     collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
                     SFXPlayer.Instance.Play(Sound.Lever);
