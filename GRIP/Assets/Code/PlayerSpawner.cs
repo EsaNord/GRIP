@@ -34,7 +34,7 @@ namespace GRIP
 
         private void InitialSpawn()
         {
-            _playerSpawn = new Vector2(-5, 36);
+            _playerSpawn = new Vector2(-5, 4); //CHANGE 4 TO 36!!
             
             _player = Instantiate(_playerObject, _playerSpawn, Quaternion.identity);
             _player.GetComponent<PlayerMovement>().enabled = false;

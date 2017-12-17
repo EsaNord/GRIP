@@ -125,7 +125,7 @@ namespace GRIP
         {
             if (collision.gameObject.tag == "Switch")
             {                
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKey(KeyCode.F))
                 {                    
                     collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
                 }
