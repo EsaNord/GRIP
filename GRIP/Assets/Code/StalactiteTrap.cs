@@ -10,7 +10,9 @@ namespace GRIP
         private float _delayTime = 1.25f;
         [SerializeField]
         private float _fallSpeed = 7f;
-
+        [SerializeField]
+        private float _destDelay = 1f;
+                
         private float _timePassed = 0f;
         private bool _triggered = false;
         private bool _played;
@@ -51,13 +53,16 @@ namespace GRIP
             {
                 SFXPlayer.Instance.Play(Sound.Death);
                 Destroy(collision.gameObject);
-                Destroy(this.gameObject);
+                              
+                Destroy(this.gameObject, _destDelay);
             }
 
             if (collision.gameObject.tag == "Ground")
             {
-                Destroy(this.gameObject);
+                
+                Destroy(this.gameObject, _destDelay);
             }
+            GetComponent<Animator>().SetTrigger("Hit");
             SFXPlayer.Instance.Play(Sound.RockHit);
         }
     }
