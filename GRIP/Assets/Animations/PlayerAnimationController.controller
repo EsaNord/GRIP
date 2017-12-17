@@ -318,7 +318,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.40000004
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 2
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101742306261005936
@@ -474,7 +474,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PlayerJump
-  m_Speed: 1.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101728986484362156}
@@ -488,7 +488,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 818fb1e168591884f85648e3a92e5fe8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4790083bc1daac347b63f518fd70a822, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
