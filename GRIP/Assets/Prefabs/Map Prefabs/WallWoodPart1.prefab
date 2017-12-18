@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4773555086572788}
   - component: {fileID: 212229021134181968}
   - component: {fileID: 61428387830524276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WallWoodPart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.02, y: 1.02}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.02, y: 1.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
