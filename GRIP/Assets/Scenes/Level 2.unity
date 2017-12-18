@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -950,6 +950,11 @@ Prefab:
 --- !u!4 &97747627 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4172552974001468, guid: f1900d8c3e784c84f9eb68df0aa2e7a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 97747626}
+--- !u!1 &97747628 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1582689272045160, guid: f1900d8c3e784c84f9eb68df0aa2e7a9,
     type: 2}
   m_PrefabInternal: {fileID: 97747626}
 --- !u!1001 &108122407
@@ -5233,6 +5238,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &570739315
 Prefab:
   m_ObjectHideFlags: 0
@@ -7598,6 +7605,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &754354225
 Prefab:
   m_ObjectHideFlags: 0
@@ -8700,6 +8709,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &850454382
 Prefab:
   m_ObjectHideFlags: 0
@@ -9934,6 +9945,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &938935396
 Prefab:
   m_ObjectHideFlags: 0
@@ -19074,6 +19087,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
+        type: 2}
+      propertyPath: _powerUp
+      value: 
+      objectReference: {fileID: 97747628}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a9aa1133ddb0094785ada8db107d54e, type: 2}
   m_IsPrefabParent: 0

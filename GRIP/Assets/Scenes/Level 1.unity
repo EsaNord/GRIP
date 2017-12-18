@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1004,6 +1004,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &38019312
 Transform:
   m_ObjectHideFlags: 0
@@ -3735,6 +3737,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &144736105
 Transform:
   m_ObjectHideFlags: 0
@@ -4516,7 +4520,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4770387829105886, guid: e7b0dc50ba444984c85fbd3845e84f1b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -34.25
+      value: -34.13
       objectReference: {fileID: 0}
     - target: {fileID: 4770387829105886, guid: e7b0dc50ba444984c85fbd3845e84f1b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9581,6 +9585,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &409757599
 Transform:
   m_ObjectHideFlags: 0
@@ -16400,6 +16406,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &679509106
 Transform:
   m_ObjectHideFlags: 0
@@ -31986,6 +31994,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1438826431
 Transform:
   m_ObjectHideFlags: 0
@@ -32600,6 +32610,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1460017724
 Transform:
   m_ObjectHideFlags: 0
@@ -47155,6 +47167,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &2055581866
 Transform:
   m_ObjectHideFlags: 0

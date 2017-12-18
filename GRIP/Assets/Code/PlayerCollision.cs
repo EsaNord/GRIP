@@ -116,6 +116,18 @@ namespace GRIP
                 {
                     GameManager.instance.lvl1Col[collectable.GetValue] = true;
                 }
+                else if (GameManager.instance.currentLevel == 1)
+                {
+                    GameManager.instance.lvl2Col[collectable.GetValue] = true;
+                }
+                else if (GameManager.instance.currentLevel == 2)
+                {
+                    GameManager.instance.lvl3Col[collectable.GetValue] = true;
+                }
+                else if (GameManager.instance.currentLevel == 3)
+                {
+                    GameManager.instance.lvl4Col[collectable.GetValue] = true;
+                }
                 _collected++;
                 collision.gameObject.SetActive(false);
             }

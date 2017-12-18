@@ -47,14 +47,12 @@ namespace GRIP
         {
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Translate(Vector3.left * speed * Time.deltaTime);                
-                _playerAnimator.SetBool("InRope", true);                
+                transform.Translate(Vector3.left * speed * Time.deltaTime);                             
                 _playerRenderer.flipX = true;
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                transform.Translate(Vector3.right * speed * Time.deltaTime);                
-                 _playerAnimator.SetBool("InRope", true);                
+                transform.Translate(Vector3.right * speed * Time.deltaTime); 
                 _playerRenderer.flipX = false;
             }
         }
@@ -177,6 +175,7 @@ namespace GRIP
                     _joint2d.distance += _adjustDistance * Time.deltaTime;                    
                 }
 
+                _playerAnimator.SetBool("InRope", true);
                 HandStart(playerPos, anchor);
                 RopeRendering();
                 CheckRope(anchor, playerPos);                
