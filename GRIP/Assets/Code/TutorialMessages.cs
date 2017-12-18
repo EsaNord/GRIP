@@ -21,8 +21,8 @@ namespace GRIP
         {
             if (collision.gameObject.tag == "Player")
             {
-                //_window.SetActive(true);
-                //_tutorialText.text = TutorialMessage();
+                _window.SetActive(true);
+                _tutorialText.text = TutorialMessage();
             }
         }
 
@@ -30,7 +30,7 @@ namespace GRIP
         {
             if (collision.gameObject.tag == "Player")
             {
-                //_window.SetActive(false);
+                _window.SetActive(false);
             }
         }
 

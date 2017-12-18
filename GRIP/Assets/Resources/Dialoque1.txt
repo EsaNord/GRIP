@@ -1,1 +1,2 @@
-Placeholder text file for story text 1.
+Use A to move left and D to move right!
+Use SPACEBAR to jump!

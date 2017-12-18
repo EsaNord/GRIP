@@ -17837,6 +17837,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1165042980751378, guid: 4a9aa1133ddb0094785ada8db107d54e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a9aa1133ddb0094785ada8db107d54e, type: 2}
   m_IsPrefabParent: 0
@@ -40676,10 +40680,6 @@ Prefab:
       propertyPath: _tutorialText
       value: 
       objectReference: {fileID: 1877352264}
-    - target: {fileID: 1743131868194010, guid: 7978715c06593ca41810817571d25e7d, type: 2}
-      propertyPath: m_TagString
-      value: Dialoque
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7978715c06593ca41810817571d25e7d, type: 2}
   m_IsPrefabParent: 0
