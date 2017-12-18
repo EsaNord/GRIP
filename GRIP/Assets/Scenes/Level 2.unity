@@ -942,7 +942,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4172552974001468, guid: f1900d8c3e784c84f9eb68df0aa2e7a9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1900d8c3e784c84f9eb68df0aa2e7a9, type: 2}
@@ -5387,7 +5387,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4036646243509538, guid: fb15c7640658d374bb127517835ce2bd, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212351778661368390, guid: fb15c7640658d374bb127517835ce2bd,
         type: 2}
@@ -10539,7 +10539,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4565957345093914, guid: 8358d30a1e94f404182e8becd9d6f4b3, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 20419643360518472, guid: 8358d30a1e94f404182e8becd9d6f4b3,
         type: 2}
@@ -12104,7 +12104,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4209805452728708, guid: 7978715c06593ca41810817571d25e7d, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 61617335230712794, guid: 7978715c06593ca41810817571d25e7d,
         type: 2}
@@ -16805,10 +16805,10 @@ Transform:
   - {fileID: 1909217267}
   - {fileID: 1213884068}
   - {fileID: 470889170}
-  - {fileID: 2006840639}
   - {fileID: 663987319}
   - {fileID: 853653907}
   - {fileID: 711362597}
+  - {fileID: 2006840639}
   - {fileID: 72256361}
   - {fileID: 2106162092}
   - {fileID: 142211117}
@@ -18781,7 +18781,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1872105754379862, guid: 4a9aa1133ddb0094785ada8db107d54e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223989588638131988, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
