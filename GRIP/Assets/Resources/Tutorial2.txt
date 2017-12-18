@@ -1,1 +1,1 @@
-Placeholder tutorial text for grapplinghook power up. Length adjustment keys W & S. Reaimig possible while hanging from previous point.
+Use the mouse to control the arm. Left click on hook-boxes to advance! Use A/D to swing, W/S to control length of the arm!

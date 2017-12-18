@@ -61,6 +61,12 @@ namespace GRIP
                 _hasPowerUps = false;
                 _colCheckList = GameManager.instance.lvl3Col;
             }
+            else if (GameManager.instance.currentLevel == 3)
+            {
+                _hasCollectables = true;
+                _hasPowerUps = false;
+                _colCheckList = GameManager.instance.lvl4Col;
+            }
             else
             {
                 _hasCollectables = false;

@@ -7,7 +7,7 @@ namespace GRIP
     public class PlayerCollision : MonoBehaviour
     {
         [SerializeField]
-        private int _playerHealth = 3;
+        private int _playerHealth = 5;
 
         private Vector2 _checkPoint;
         private GameObject _lastCheckPoint;
@@ -131,7 +131,7 @@ namespace GRIP
         {
             if (collision.gameObject.tag == "Switch")
             {                
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKey(KeyCode.F)) //ATM WHEN HELD DOWN WORKS, EASIER FOR PRESENTATION
                 {                    
                     collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
                     SFXPlayer.Instance.Play(Sound.Lever);

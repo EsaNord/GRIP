@@ -165,6 +165,10 @@ namespace GRIP {
             {
                 _levelCol = GameManager.instance.lvl3Col.Length;
             }
+            else if (GameManager.instance.currentLevel == 3)
+            {
+                _levelCol = GameManager.instance.lvl4Col.Length;
+            }
         }
     }
 }
