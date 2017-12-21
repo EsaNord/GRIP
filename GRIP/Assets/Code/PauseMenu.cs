@@ -19,9 +19,15 @@ namespace GRIP
         [SerializeField]
         private GameObject _view2;
         [SerializeField]
+        private GameObject _menuConfirm;
+        [SerializeField]
+        private GameObject _exitConfirm;
+        [SerializeField]
         private Slider _musicVol;
         [SerializeField]
         private Slider _sfxVol;
+
+        private bool _confirmed = false;
 
         private void Awake()
         {
@@ -51,9 +57,8 @@ namespace GRIP
 
         public void MainMenu()
         {
-            Time.timeScale = 1f;
             SFXPlayer.Instance.Play(Sound.MenuClick);
-            SceneManager.LoadScene("MainMenu");
+            _menuConfirm.SetActive(true);                       
         }
 
         public void Options()
@@ -66,7 +71,7 @@ namespace GRIP
         public void QuitGame()
         {
             SFXPlayer.Instance.Play(Sound.MenuClick);
-            Application.Quit();
+            _exitConfirm.SetActive(true);                      
         }
 
         public void MusicVol()
@@ -84,6 +89,31 @@ namespace GRIP
             SFXPlayer.Instance.Play(Sound.MenuClick);
             _view1.SetActive(true);
             _view2.SetActive(false);
+        }
+
+        public void MenuNo()
+        {
+            SFXPlayer.Instance.Play(Sound.MenuClick);
+            _menuConfirm.SetActive(false);            
+        }
+
+        public void MenuYes()
+        {
+            SFXPlayer.Instance.Play(Sound.MenuClick);
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        public void ExitNo()
+        {
+            SFXPlayer.Instance.Play(Sound.MenuClick);
+            _exitConfirm.SetActive(false);
+        }
+
+        public void ExitYes()
+        {
+            SFXPlayer.Instance.Play(Sound.MenuClick);
+            Application.Quit();
         }
     }
 }
