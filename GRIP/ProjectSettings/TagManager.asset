@@ -17,6 +17,7 @@ TagManager:
   - Tutorial
   - Switch
   - Trap
+  - Ladder
   layers:
   - Default
   - TransparentFX

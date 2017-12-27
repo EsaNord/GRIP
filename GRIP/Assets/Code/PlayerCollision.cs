@@ -12,6 +12,7 @@ namespace GRIP
         private Vector2 _checkPoint;
         private GameObject _lastCheckPoint;
         private int _collected = 0;
+        private bool _inLadder;
 
         public int ColCollected
         {
@@ -27,6 +28,11 @@ namespace GRIP
         public Vector3 LastCheckpoint
         {
             get { return _checkPoint; }
+        }
+
+        public bool Ladder
+        {
+            get { return _inLadder; }
         }
 
         // Saves respawn point
@@ -148,6 +154,19 @@ namespace GRIP
                     collision.gameObject.GetComponent<PuzzleSwitch>().Activated = true;
                     SFXPlayer.Instance.Play(Sound.Lever);
                 }
+            }
+
+            if (collision.gameObject.tag == "Ladder")
+            {
+                _inLadder = true;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Ladder")
+            {
+                _inLadder = false;
             }
         }
     }

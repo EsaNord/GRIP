@@ -24,6 +24,7 @@ namespace GRIP
         private Animator _playerAnimator;
         private SpriteRenderer _playerRenderer;
         private PlayerAbilities _abillities;
+        private PlayerCollision _collisionDet;
         private Rigidbody2D _playerBody;
         private bool _wallLeft = false;
         private bool _wallRight = false;        
@@ -32,6 +33,7 @@ namespace GRIP
         {
             _playerAnimator = GetComponent<Animator>();
             _abillities = GetComponent<PlayerAbilities>();
+            _collisionDet = GetComponent<PlayerCollision>();
             _playerRenderer = GetComponent<SpriteRenderer>();
             _playerBody = GetComponent<Rigidbody2D>();            
         }        
@@ -53,7 +55,7 @@ namespace GRIP
 
         private void Move()
         {            
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && !_collisionDet.Ladder)
             {
                 if (_grounded)
                 {
@@ -75,6 +77,18 @@ namespace GRIP
                 }                
                 _playerAnimator.SetTrigger("Jumped");                
             }
+            if (_collisionDet.Ladder)
+            {
+                _playerBody.gravityScale = 0;
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.Translate(Vector3.up * _speed * Time.deltaTime);
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.down * _speed * Time.deltaTime);
+                }
+            }
             if (Input.GetKey(KeyCode.A))
             {
                 transform.Translate(Vector3.left * _speed * Time.deltaTime);
@@ -92,7 +106,11 @@ namespace GRIP
                     _playerAnimator.SetBool("Moving", true);                    
                 }
                 _playerRenderer.flipX = false;
-            }                        
+            }
+            else if (!_collisionDet.Ladder)
+            {
+                _playerBody.gravityScale = 1;
+            }
             else
             {
                 _playerAnimator.SetBool("Moving", false);

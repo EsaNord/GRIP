@@ -25,9 +25,7 @@ namespace GRIP
         [SerializeField]
         private Slider _musicVol;
         [SerializeField]
-        private Slider _sfxVol;
-
-        private bool _confirmed = false;
+        private Slider _sfxVol;        
 
         private void Awake()
         {

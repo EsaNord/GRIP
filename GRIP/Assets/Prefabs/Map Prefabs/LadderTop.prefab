@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61863257190273912}
   m_Layer: 16
   m_Name: LadderTop
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

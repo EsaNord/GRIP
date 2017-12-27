@@ -9,11 +9,11 @@ namespace GRIP
     public class GameOverMenu : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _winText;
-        [SerializeField]
-        private GameObject _defeatText;
+        private GameObject _winText;        
         [SerializeField]
         private Text _scoreText;
+        [SerializeField]
+        private GameObject _badEndBg;
 
         public void MainMenu()
         {
@@ -28,8 +28,8 @@ namespace GRIP
                 _winText.SetActive(true);
             }
             else
-            {
-                _defeatText.SetActive(true);
+            {                
+                _badEndBg.SetActive(true);
             }
 
             _scoreText.text = "Final Score: " + GameManager.instance.score;
