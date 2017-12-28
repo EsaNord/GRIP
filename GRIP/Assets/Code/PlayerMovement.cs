@@ -80,6 +80,9 @@ namespace GRIP
             if (_collisionDet.Ladder)
             {
                 _playerBody.gravityScale = 0;
+                _playerBody.velocity = new Vector2(0, 0);
+                _playerAnimator.SetBool("Moving", false);
+
                 if (Input.GetKey(KeyCode.W))
                 {
                     transform.Translate(Vector3.up * _speed * Time.deltaTime);
@@ -110,11 +113,8 @@ namespace GRIP
             else if (!_collisionDet.Ladder)
             {
                 _playerBody.gravityScale = 1;
-            }
-            else
-            {
                 _playerAnimator.SetBool("Moving", false);
-            }            
+            }                      
         }
 
         private void GroundCheck()
