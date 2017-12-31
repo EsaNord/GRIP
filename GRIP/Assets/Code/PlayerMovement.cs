@@ -14,7 +14,7 @@ namespace GRIP
         [SerializeField, Tooltip("Distance from ground")]
         private float _distance = 1.0f;
         [SerializeField, Tooltip("Distance from wall")]
-        private float _wallDistance = 1.0f;
+        private float _wallDistance = 0.75f;
         [SerializeField]
         private LayerMask _groundLayer;
         [SerializeField]
