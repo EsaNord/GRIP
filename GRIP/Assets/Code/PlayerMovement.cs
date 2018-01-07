@@ -101,9 +101,9 @@ namespace GRIP
                 transform.Translate(Vector3.left * _speed * Time.deltaTime);
                 if (_grounded)
                 {                    
-                    _playerAnimator.SetBool("Moving", true);                    
-                }
-                _playerRenderer.flipX = true;               
+                    _playerAnimator.SetBool("Moving", true);
+                    _playerRenderer.flipX = true;
+                }                              
             }
             else if (Input.GetKey(KeyCode.D))
             {
@@ -114,9 +114,9 @@ namespace GRIP
                 transform.Translate(Vector3.right * _speed * Time.deltaTime);
                 if (_grounded)
                 {                    
-                    _playerAnimator.SetBool("Moving", true);                    
-                }
-                _playerRenderer.flipX = false;
+                    _playerAnimator.SetBool("Moving", true);
+                    _playerRenderer.flipX = false;
+                }                
             }
             else if (!_collisionDet.Ladder)
             {
