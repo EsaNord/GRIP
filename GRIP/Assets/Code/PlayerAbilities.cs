@@ -78,8 +78,7 @@ namespace GRIP
         private void Crosshair()
         {        
             if (!_createdCrosshair)
-            {
-                Debug.Log("Crosshair Created");
+            {                
                 Instantiate(_crosshair);
                 _crosshair = GameObject.FindGameObjectWithTag("Crosshair");
                 _createdCrosshair = true;
@@ -125,22 +124,18 @@ namespace GRIP
 
             // Detects if mouse's left button is pressed down and held
             if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Pressed");
+            {                
                 _targetPos = _crosshairPos;                
 
                 _hit = Physics2D.Raycast(playerPos, _targetPos - playerPos, _distance, _targetLayer);
                 RaycastHit2D _obstacle = Physics2D.Raycast(playerPos, _targetPos - playerPos, _distance, _obstacleLayer);                
                 
                 if (_obstacle.collider != null)
-                {
-                    Debug.Log("Hitpos?: " + _obstacle.collider.transform.position);
-                    Debug.Log("Blocked");
+                {                    
                     _blocked = true;
                 }
                 else
-                {
-                    Debug.Log("Clear");
+                {                    
                     _blocked = false;
                 }
 
@@ -162,16 +157,13 @@ namespace GRIP
             {
                 Vector3 anchor = new Vector3(_hit.collider.transform.position.x,
                     (_hit.collider.transform.position.y - _hit.collider.bounds.size.y / 4), 0);
-                Debug.DrawRay(transform.position, (anchor - playerPos), Color.red);
-                Debug.Log("Up or Down");
+                Debug.DrawRay(transform.position, (anchor - playerPos), Color.red);                
                 if (Input.GetKey(KeyCode.W))
-                {
-                    Debug.Log("Up");
+                {                    
                     _joint2d.distance -= _adjustDistance * Time.deltaTime;                    
                 }
                 if (Input.GetKey(KeyCode.S))
-                {
-                    Debug.Log("Down");
+                {                    
                     _joint2d.distance += _adjustDistance * Time.deltaTime;                    
                 }
 
@@ -183,8 +175,7 @@ namespace GRIP
 
             // Detects if left mouse button is lifted
             if (Input.GetMouseButtonUp(0) || !_connected)
-            {
-                Debug.Log("Released");
+            {                
                 _joint2d.enabled = false;
                 _connected = false;
                 _hook.SetActive(false);

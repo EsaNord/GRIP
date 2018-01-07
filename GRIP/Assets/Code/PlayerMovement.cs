@@ -94,15 +94,23 @@ namespace GRIP
             }
             if (Input.GetKey(KeyCode.A))
             {
+                if (!_collisionDet.Ladder)
+                {
+                    _playerBody.gravityScale = 1;
+                }
                 transform.Translate(Vector3.left * _speed * Time.deltaTime);
                 if (_grounded)
                 {                    
                     _playerAnimator.SetBool("Moving", true);                    
                 }
-                _playerRenderer.flipX = true;
+                _playerRenderer.flipX = true;               
             }
             else if (Input.GetKey(KeyCode.D))
             {
+                if (!_collisionDet.Ladder)
+                {
+                    _playerBody.gravityScale = 1;
+                }
                 transform.Translate(Vector3.right * _speed * Time.deltaTime);
                 if (_grounded)
                 {                    
@@ -137,15 +145,12 @@ namespace GRIP
             if (right || left)
             {
                 _grounded = true;
-                _playerAnimator.SetBool("Ground", true);
-                Debug.Log("Grounded");
+                _playerAnimator.SetBool("Ground", true);                
             }
             else
             {
                 _grounded = false;
                 _playerAnimator.SetBool("Ground", false);
-                Debug.Log("Air");
-
             }            
         }
 

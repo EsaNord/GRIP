@@ -56,13 +56,11 @@ namespace GRIP
             {
                 if (collision.gameObject.tag == "Entrance")
                 {
-                    GameManager.instance.exitPoint = 0;
-                    Debug.Log("Entrance point");
+                    GameManager.instance.exitPoint = 0;                    
                 }
                 else if (collision.gameObject.tag == "Exit")
                 {
-                    GameManager.instance.exitPoint = 1;
-                    Debug.Log("Exit point");
+                    GameManager.instance.exitPoint = 1;                    
                 }
                 SFXPlayer.Instance.Play(Sound.LevelEnd);
                 GameManager.instance.changeLevel = true;
@@ -71,8 +69,7 @@ namespace GRIP
             // If collision if with death plane
             if (collision.tag == "Killer")
             {
-                SFXPlayer.Instance.Play(Sound.Death);
-                Debug.Log("DEAD");
+                SFXPlayer.Instance.Play(Sound.Death);                
                 GameManager.instance.justDied = true;
                 GameManager.instance.checkDone = false;
                 Destroy(this.gameObject);

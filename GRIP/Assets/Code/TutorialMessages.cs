@@ -15,8 +15,8 @@ namespace GRIP
 
         private GameObject _dialoqueObject;
         private string _dialoqueFile = "Dialoque";
-        private string _tutorialFile = "Tutorial";        
-             
+        private string _tutorialFile = "Tutorial";
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.tag == "Player")
