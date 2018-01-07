@@ -18,9 +18,18 @@ namespace GRIP
         private Slider _sfxVol;
 
         private void Start()
-        {
-            _musicVol.value = GameManager.instance.musicVolume;
-            _sfxVol.value = GameManager.instance.effectVolume;
+        {            
+            if (!GameManager.instance.hasInitialized)
+            {
+                _musicVol.value = GameManager.instance.musicVolume;
+                _sfxVol.value = GameManager.instance.effectVolume;
+                GameManager.instance.hasInitialized = true;
+            }
+            else
+            {
+                _musicVol.value = MusicPlayer.Instance.Volume;
+                _sfxVol.value = SFXPlayer.Instance.Volume;
+            }
             MusicPlayer.Instance.PlayTrack(1);
         }
 
