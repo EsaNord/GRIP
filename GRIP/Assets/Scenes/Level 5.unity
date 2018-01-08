@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -872,6 +872,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -2228,6 +2233,11 @@ Prefab:
       propertyPath: m_Name
       value: Collectable 16
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -2290,6 +2300,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -3094,6 +3109,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -4620,6 +4640,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -13354,6 +13379,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &585139695
 Prefab:
   m_ObjectHideFlags: 0
@@ -14756,6 +14783,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &654068324
 Prefab:
   m_ObjectHideFlags: 0
@@ -16035,6 +16064,11 @@ Prefab:
       propertyPath: m_Name
       value: Collectable 22
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -16648,6 +16682,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -18238,27 +18277,27 @@ Prefab:
         type: 2}
       propertyPath: _collectables.Array.data[19]
       value: 
-      objectReference: {fileID: 566329290}
+      objectReference: {fileID: 1716328275}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[18]
       value: 
-      objectReference: {fileID: 1077732797}
+      objectReference: {fileID: 566329290}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[16]
       value: 
-      objectReference: {fileID: 1457122696}
+      objectReference: {fileID: 235052275}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[17]
       value: 
-      objectReference: {fileID: 235052275}
+      objectReference: {fileID: 1077732797}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[15]
       value: 
-      objectReference: {fileID: 2085414838}
+      objectReference: {fileID: 1457122696}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[5]
@@ -18288,7 +18327,7 @@ Prefab:
         type: 2}
       propertyPath: _collectables.Array.data[11]
       value: 
-      objectReference: {fileID: 1090854423}
+      objectReference: {fileID: 35590481}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[10]
@@ -18298,17 +18337,17 @@ Prefab:
         type: 2}
       propertyPath: _collectables.Array.data[12]
       value: 
-      objectReference: {fileID: 1534784655}
+      objectReference: {fileID: 1090854423}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[13]
       value: 
-      objectReference: {fileID: 35590481}
+      objectReference: {fileID: 1534784655}
     - target: {fileID: 114860715991237854, guid: 4a9aa1133ddb0094785ada8db107d54e,
         type: 2}
       propertyPath: _collectables.Array.data[14]
       value: 
-      objectReference: {fileID: 1716328275}
+      objectReference: {fileID: 2085414838}
     - target: {fileID: 4121589432919362, guid: 4a9aa1133ddb0094785ada8db107d54e, type: 2}
       propertyPath: m_RootOrder
       value: 1
@@ -19611,6 +19650,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -21145,6 +21189,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &899972580
 Prefab:
   m_ObjectHideFlags: 0
@@ -21695,6 +21741,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -30350,6 +30401,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &1235680242
 Prefab:
   m_ObjectHideFlags: 0
@@ -30790,6 +30843,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &1252579578
 Prefab:
   m_ObjectHideFlags: 0
@@ -31399,6 +31454,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1265808093
 Transform:
   m_ObjectHideFlags: 0
@@ -33805,6 +33862,11 @@ Prefab:
       propertyPath: m_Name
       value: Collectable 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -34076,6 +34138,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -34346,6 +34413,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &1371069433
 Prefab:
   m_ObjectHideFlags: 0
@@ -34663,6 +34732,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -36417,6 +36491,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &1452217315
 Prefab:
   m_ObjectHideFlags: 0
@@ -36471,6 +36547,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -38031,6 +38112,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -40279,6 +40365,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -43463,6 +43554,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 19
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -43720,6 +43816,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -43953,6 +44054,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -44826,6 +44932,11 @@ Prefab:
       propertyPath: m_Name
       value: Collectable 25
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -45574,6 +45685,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -46757,6 +46873,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -49081,6 +49202,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -51348,6 +51474,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
   m_IsPrefabParent: 0
@@ -51714,6 +51845,11 @@ Prefab:
     - target: {fileID: 1679300744839872, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
       propertyPath: m_Name
       value: Collectable 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895826898023002, guid: 64cb5e5c6df219c40927e0598932edc1,
+        type: 2}
+      propertyPath: _position
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64cb5e5c6df219c40927e0598932edc1, type: 2}
@@ -52124,6 +52260,8 @@ SpriteRenderer:
   m_Size: {x: 18.4, y: 13.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &2032913798
 Prefab:
   m_ObjectHideFlags: 0

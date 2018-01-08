@@ -55,12 +55,13 @@ namespace GRIP
 
         private void Move()
         {            
-            if (Input.GetKey(KeyCode.Space) && !_collisionDet.Ladder)
+            if (Input.GetKeyDown(KeyCode.Space) && !_collisionDet.Ladder)
             {
                 if (_grounded)
                 {
                     _playerBody.velocity = Vector3.up * _jumpForce;
                     SFXPlayer.Instance.Play(Sound.Jump);
+                    _playerAnimator.SetTrigger("Jumped");
                 }
                 else
                 {                    
@@ -68,14 +69,15 @@ namespace GRIP
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.right) * _jumpForce;
                         SFXPlayer.Instance.Play(Sound.Jump);
+                        _playerAnimator.SetTrigger("Jumped");
                     }
                     else if (!_wallLeft && _wallRight && !_grounded)
                     {
                         _playerBody.velocity = (Vector3.up + Vector3.left) * _jumpForce;
                         SFXPlayer.Instance.Play(Sound.Jump);
-                    }
-                }                
-                _playerAnimator.SetTrigger("Jumped");                
+                        _playerAnimator.SetTrigger("Jumped");
+                    }                     
+                }                               
             }
             if (_collisionDet.Ladder)
             {

@@ -77,19 +77,17 @@ namespace GRIP
 
             // If collision is with checkpoint
             if (collision.tag == "Checkpoint")
-            {
-                Debug.Log("SPAWNSAVED");
-
+            {                
                 if (!collision.gameObject.GetComponent<CheckpointInfo>().Activated)
                 {
                     SFXPlayer.Instance.Play(Sound.Checkpoint);
                 }
 
                 if (GameManager.instance.lastCheckpointName != null)
-                {
+                {                    
                     _lastCheckPoint = GameObject.Find(GameManager.instance.lastCheckpointName);
                     _lastCheckPoint.GetComponent<Animator>().SetBool("visited", false);
-                    collision.gameObject.GetComponent<CheckpointInfo>().Activated = false;
+                    _lastCheckPoint.GetComponent<CheckpointInfo>().Activated = false;
                 }
 
                 GameManager.instance.lastCheckpointName = collision.name;

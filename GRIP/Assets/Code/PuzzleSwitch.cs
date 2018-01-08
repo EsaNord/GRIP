@@ -23,8 +23,7 @@ namespace GRIP
         void Update()
         {
             if (_open)
-            {
-                Debug.Log("Open door");
+            {                
                 this.gameObject.GetComponent<Animator>().SetBool("Activated", true);
                 for (int i = 0; i < _door.Length; i++)
                 {
