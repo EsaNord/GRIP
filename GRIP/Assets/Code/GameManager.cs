@@ -22,6 +22,7 @@ namespace GRIP
         public bool justDied;
         public bool checkDone;
         public int collected;
+        public bool hasInitialized;
 
         public string[] levels;
 
