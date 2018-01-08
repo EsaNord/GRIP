@@ -31,18 +31,20 @@ namespace GRIP
         public bool[] lvl2Col;
         public bool[] lvl3Col;
         public bool[] lvl4Col;
+        public bool[] lvl5Col;
 
         private void Awake()
         {
             levels = new string[]
             {
-                "Level 1",  "Level 2", "Level 3", "Level 4"
+                "Level 1",  "Level 2", "Level 3", "Level 4", "Level 5"
             };
 
             lvl1Col = new bool[25];
             lvl2Col = new bool[25];
             lvl3Col = new bool[25];
             lvl4Col = new bool[25];
+            lvl5Col = new bool[25];
 
             effectVolume = 0.5f;
             musicVolume = 0.5f;
@@ -91,6 +93,10 @@ namespace GRIP
             for (int i = 0; i < lvl4Col.Length; i++)
             {
                 lvl4Col[i] = false;
+            }
+            for (int i = 0; i < lvl5Col.Length; i++)
+            {
+                lvl5Col[i] = false;
             }
         }
     }
