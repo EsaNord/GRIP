@@ -47,6 +47,14 @@ namespace GRIP
             }
         }
 
+        private void PlayerParts()
+        {
+            GameObject hook = GameObject.FindGameObjectWithTag("Hook");
+            GameObject handStart = GameObject.FindGameObjectWithTag("Shoulder");
+            Destroy(hook);
+            Destroy(handStart);
+        }
+
         // Checks player's collision with trigger objects
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -72,6 +80,7 @@ namespace GRIP
                 SFXPlayer.Instance.Play(Sound.Death);                
                 GameManager.instance.justDied = true;
                 GameManager.instance.checkDone = false;
+                PlayerParts();
                 Destroy(this.gameObject);
             }
 

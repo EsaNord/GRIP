@@ -18,6 +18,7 @@ TagManager:
   - Switch
   - Trap
   - Ladder
+  - Shoulder
   layers:
   - Default
   - TransparentFX
